@@ -10,7 +10,8 @@
   "dependencies": {
     "express": "~3.4.4",
     "node-schedule": "~0.2.9",
-    "twit": "~2.1.0"
+    "twit": "~2.1.0",
+    "request": "~2.60.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],
