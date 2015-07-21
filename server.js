@@ -3,6 +3,7 @@
 var express = require('express');
 var fs      = require('fs');
 var request = require("request");
+var Twit = require('twit');
 
 /**
  *  Define the sample application.
