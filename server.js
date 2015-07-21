@@ -145,7 +145,7 @@ var SampleApp = function() {
         self.config = JSON.parse(fs.readFileSync('./config.json'));
 
         // EDT ordua (-6 ordu)
-        var j = schedule.scheduleJob('12 8,18 * * *', function() {
+        var j = schedule.scheduleJob('16 8,18 * * *', function() {
             self.txiokatuWikidosia();
         });
 
