@@ -145,7 +145,8 @@ var SampleApp = function() {
         self.config = JSON.parse(fs.readFileSync('./config.json'));
 
         // EDT ordua (-6 ordu)
-        var j = schedule.scheduleJob('16 8,18 * * *', function() {
+        // Momentuz 9:00 eta 21:00tan. Argi ordu aldaketekin!
+        var j = schedule.scheduleJob('00 3,15 * * *', function() {
             self.txiokatuWikidosia();
         });
 
