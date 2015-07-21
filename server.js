@@ -5,7 +5,7 @@ var schedule = require('node-schedule');
 
 var config = JSON.parse(fs.readFileSync('./config.json'));
 
-var j = schedule.scheduleJob('45 9,21 * * *', function() {
+var j = schedule.scheduleJob('0 10,22 * * *', function() {
     txiokatuWikidosia();
 });
 
