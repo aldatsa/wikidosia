@@ -143,11 +143,11 @@ var SampleApp = function() {
     self.start = function() {
 
         self.config = JSON.parse(fs.readFileSync('./config.json'));
-
+        console.log();
         // EDT ordua (-6 ordu)
-        var j = schedule.scheduleJob('0 8,18 * * *', function() {
-            self.txiokatuWikidosia();
-        });
+        //var j = schedule.scheduleJob('0 8,18 * * *', function() {
+        //    self.txiokatuWikidosia();
+        //});
 
         //  Start the app on the specific interface (and port).
         self.app.listen(self.port, self.ipaddress, function() {
