@@ -1,10 +1,23 @@
 var request = require("request");
+var Twit = require('twit');
+var fs = require('fs');
+
+var config = JSON.parse(fs.readFileSync('./config.json'));
+
+var T = new Twit({
+    consumer_key:         config.twitter_app.consumer_key,
+    consumer_secret:      config.twitter_app.consumer_secret,
+    access_token:         config.twitter_app.access_token,
+    access_token_secret:  config.twitter_app.access_token_secret
+});
 
 var emaitza = {
     pageid: undefined,
     title: "",
     extract: ""
 };
+
+var mezua = "";
 
 request({
     url: "http://eu.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=extracts&explaintext&exintro=&format=json",
@@ -32,8 +45,18 @@ request({
 
                     }
 
-                    console.log(emaitza);
-                    
+                    mezua = emaitza.title + " - " + emaitza.extract;
+
+                    mezua = mezua.substring(0, 140 - 27);
+
+                    mezua = mezua + "... " + emaitza.fullurl;
+
+                    T.post('statuses/update', { status: mezua }, function(err, data, response) {
+                        if(err) {
+                            console.log("There was a problem tweeting the message.", err);
+                        }
+                    });
+
                 }
 
             });
@@ -41,16 +64,3 @@ request({
     }
 
 });
-
-/*
-$.getJSON("http://en.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=extracts&explaintext&exintro=&format=json&callback=?", function (data) {
-        $.getJSON('http://en.wikipedia.org/w/api.php?action=query&prop=info&pageids='+v.pageid+'&inprop=url&format=json&callback=?', function(url) {
-    $.each(data.query.pages, function(k, v) {
-            $.each(url.query.pages, function(key, page) {
-                console.log(page); // contains the page data
-                var url = page.fullurl; // the url to the page
-            });
-        });
-    });
-});
-*/
