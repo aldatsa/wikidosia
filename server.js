@@ -142,7 +142,7 @@ var SampleApp = function() {
      */
     self.start = function() {
 
-        self.config = JSON.parse(fs.readFileSync(process.env.OPENSHIFT_DATA_DIR + '/config.json'));
+        self.config = JSON.parse(fs.readFileSync(process.env.OPENSHIFT_DATA_DIR + 'config.json'));
 
         // EDT ordua (-6 ordu)
         // Momentuz 9:00 eta 21:00tan. Argi ordu aldaketekin!
