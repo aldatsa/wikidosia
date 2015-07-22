@@ -2,7 +2,7 @@
   "name": "wikidosia",
   "version": "0.1.0",
   "description": "Zure wikiegarria asetuko duen bot zintzoa",
-  "main": "server.js",
+  "main": "./openshift/server.js",
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
@@ -17,7 +17,7 @@
   "bundleDependencies": [],
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./openshift/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {

@@ -2,7 +2,7 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-var Wikidosia = require('lib/wikidosia');
+var Wikidosia = require('../lib/wikidosia');
 
 /**
  *  Define the sample application.
@@ -22,8 +22,11 @@ var SampleApp = function() {
      */
     self.setupVariables = function() {
         //  Set the environment variables we need.
-        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+        self.ipaddress   = process.env.OPENSHIFT_NODEJS_IP;
+        self.port        = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+
+        // OpenShift-en bagaude bertako bidea erabili, lokalean bagaude berriz config.json-en bide erlatiboa.
+        self.config_path = process.env.OPENSHIFT_DATA_DIR || "./";
 
         if (typeof self.ipaddress === "undefined") {
             //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
@@ -140,7 +143,7 @@ var SampleApp = function() {
      */
     self.start = function() {
 
-        var config = JSON.parse(fs.readFileSync(process.env.OPENSHIFT_DATA_DIR + 'config.json'));
+        var config = JSON.parse(fs.readFileSync(self.config_path + 'config.json'));
 
         var wikidosia = new Wikidosia(config);
 
