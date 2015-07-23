@@ -1,0 +1,11 @@
+{
+    "twitter_app": {
+
+        "consumer_key": "KOPIATU HEMEN ZURE APLIKAZIOAREN GAKOA",
+        "consumer_secret": "KOPIATU HEMEN ZURE APLIKAZIOAREN SEKRETUA",
+        "access_token": "KOPIATU HEMEN ZURE APLIKAZIOAREN TOKENA",
+        "access_token_secret": "KOPIATU HEMEN ZURE APLIKAZIOAREN TOKENAREN SEKRETUA"
+
+    },
+    "schedule_job": "IDATZI HEMEN CRON MOTAKO KONFIGURAZIO KATEA"
+}
