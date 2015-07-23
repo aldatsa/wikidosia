@@ -26,7 +26,7 @@ var SampleApp = function() {
         self.port        = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
         // OpenShift-en bagaude bertako bidea erabili, lokalean bagaude berriz config.json-en bide erlatiboa.
-        self.config_path = process.env.OPENSHIFT_DATA_DIR || "./";
+        self.config_path = process.env.OPENSHIFT_DATA_DIR || "./openshift/";
 
         if (typeof self.ipaddress === "undefined") {
             //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
@@ -46,7 +46,7 @@ var SampleApp = function() {
         }
 
         //  Local cache for static content.
-        self.zcache['index.html'] = fs.readFileSync('./index.html');
+        self.zcache['index.html'] = fs.readFileSync('./openshift/index.html');
     };
 
 
