@@ -1,7 +1,7 @@
 {
   "name": "wikidosia",
   "version": "1.0.0",
-  "description": "Zure wikiegarria asetuko duen bot zintzoa",
+  "description": "Zure wikiegarria asetuko duen txiobot zintzo eta librea",
   "main": "./openshift/server.js",
   "engines": {
     "node": ">= 0.6.0",
