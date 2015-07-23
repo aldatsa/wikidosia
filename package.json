@@ -1,6 +1,6 @@
 {
   "name": "wikidosia",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Zure wikiegarria asetuko duen bot zintzoa",
   "main": "./openshift/server.js",
   "engines": {
