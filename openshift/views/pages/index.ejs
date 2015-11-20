@@ -14,11 +14,15 @@
             </hgroup>
 
             <div class="row">
-                <ul>
+                <table>
                     <% for (var i = 0; i < artikuluak.length; i++) { %>
-                        <li><%= artikuluak[i].article %></li>
+                        <tr>
+                            <td><%= i + 1 %>
+                            <td><%= artikuluak[i].article %></td>
+                            <td><%= artikuluak[i].views %></td>
+                        </tr>
                     <% } %>
-                </ul>
+                </table>
             </div>
 
             <footer>
