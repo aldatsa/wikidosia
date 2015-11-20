@@ -104,6 +104,7 @@ var SampleApp = function() {
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
+        self.app.use(express.static(__dirname + '/public'));
         self.app.set('views', __dirname + '/views');
         self.app.set('view engine', 'ejs');
 
