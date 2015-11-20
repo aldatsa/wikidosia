@@ -3,6 +3,8 @@
 var express   = require('express');
 var fs        = require('fs');
 var Wikidosia = require('../lib/wikidosia');
+var Wikipedia = require('../lib/wikipedia');
+var wikipedia = new Wikipedia();
 
 /**
  *  Define the sample application.
@@ -83,11 +85,14 @@ var SampleApp = function() {
         };
 
         self.routes['/'] = function(req, res) {
-            //res.setHeader('Content-Type', 'text/html');
-            res.render('pages/index', {
-                data: '2015-11-20'
+            wikipedia.getMostViewedArticles("eu", 2015, 11, 19, 100, false).then(function(emaitza) {
+
+                //res.setHeader('Content-Type', 'text/html');
+                res.render('pages/index', {
+                    data: "2015-11-19",
+                    artikuluak: emaitza
+                });
             });
-            //res.send(self.cache_get('index.html') );
         };
     };
 
