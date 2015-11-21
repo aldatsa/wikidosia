@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Wikidosia - Eguneko rankina</title>
         <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="/css/bootstrap-datepicker3.min.css">
         <link type="text/css" rel="stylesheet" href="/css/itxura.css">
     </head>
     <body>
@@ -12,7 +13,11 @@
             <hgroup>
                 <h1>Artikulu irakurrienak: <%= data %></h1>
             </hgroup>
-
+            <div class="row">
+                <div id="data" class="input-group date">
+                    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                </div>
+            </div>
             <div class="row">
                 <table class="table table-striped">
                     <thead>
@@ -36,5 +41,18 @@
                 <div class="logo"><a href="https://www.openshift.com/"></a></div>
             </footer>
         </section>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-datepicker.eu.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#data').datepicker({
+                    format: "yyyy-mm-dd",
+                    weekStart: 1,
+                    language: "eu",
+                    autoclose: true
+                });
+            });
+        </script>
     </body>
 </html>
