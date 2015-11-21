@@ -11,21 +11,23 @@
     <body>
         <section class='container'>
             <hgroup>
-                <h1>Artikulu irakurrienak: <%= urtea + "-" + hilabetea + "-" + eguna %></h1>
+                <h1 class="izenburua">Artikulu irakurrienak: <%= urtea + "-" + hilabetea + "-" + eguna %></h1>
             </hgroup>
-            <div class="row">
-                <form method="get" class="form-inline">
+            <div class="row aukerak">
+                <form method="get" class="form-horizontal">
                     <div class="form-group">
-                        <label for="date" class="control-label">Data</label>
-                        <div class="date">
-                            <div class="input-group input-append date" id="data">
-                                <input type="text" class="form-control" value="<%= urtea + "-" + hilabetea + "-" + eguna %>">
-                                <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-th"></i>
-                                </span>
+                        <div class="col-xs-12 col-sm-8">
+                            <label id="data-etiketa" class="col-xs-offset-2 col-xs-2 control-label">Data</label>
+                            <div class="date">
+                                <div class="col-xs-8 input-group input-append date" id="data">
+                                    <input type="text" class="form-control" value="<%= urtea + "-" + hilabetea + "-" + eguna %>">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-th"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        <div class="checkbox">
+                        <div class="col-xs-offset-4 col-xs-8 col-sm-offset-0 col-sm-4 checkbox">
                             <label>
                                 <input type="checkbox"> Bereziak barne
                             </label>
