@@ -79,12 +79,7 @@ var SampleApp = function() {
     self.createRoutes = function() {
         self.routes = { };
 
-        self.routes['/asciimo'] = function(req, res) {
-            var link = "http://i.imgur.com/kmbjB.png";
-            res.send("<html><body><img src='" + link + "'></body></html>");
-        };
-
-        self.routes['/'] = function(req, res) {
+        self.routes["/irakurrienak"] = function(req, res) {
 
             // Atzoko data eskuratu.
             var data = new Date();
@@ -97,7 +92,7 @@ var SampleApp = function() {
             wikipedia.getMostViewedArticles("eu", urtea, hilabetea, eguna, 100, false).then(function(emaitza) {
 
                 //res.setHeader('Content-Type', 'text/html');
-                res.render('pages/index', {
+                res.render("pages/irakurrienak", {
                     urtea: urtea,
                     hilabetea: hilabetea,
                     eguna: eguna,
@@ -105,6 +100,13 @@ var SampleApp = function() {
                 });
             });
         };
+
+        self.routes["/"] = function(req, res) {
+
+            res.render("pages/index", {});
+
+        };
+        
     };
 
 
