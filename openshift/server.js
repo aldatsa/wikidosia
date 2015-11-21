@@ -93,6 +93,7 @@ var SampleApp = function() {
 
                 //res.setHeader('Content-Type', 'text/html');
                 res.render("pages/irakurrienak", {
+                    title: "Wikidosia - Irakurrienak " + urtea + "-"  + hilabetea + "-" + eguna,
                     urtea: urtea,
                     hilabetea: hilabetea,
                     eguna: eguna,
@@ -103,10 +104,12 @@ var SampleApp = function() {
 
         self.routes["/"] = function(req, res) {
 
-            res.render("pages/index", {});
+            res.render("pages/index", {
+                title: "Wikidosia"
+            });
 
         };
-        
+
     };
 
 

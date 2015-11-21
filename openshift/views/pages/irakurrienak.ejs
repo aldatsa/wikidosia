@@ -1,24 +1,9 @@
 <!doctype html>
 <html lang="eu">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Wikidosia - Eguneko rankina</title>
-        <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css">
-        <link type="text/css" rel="stylesheet" href="/css/bootstrap-datepicker3.min.css">
-        <link type="text/css" rel="stylesheet" href="/css/itxura.css">
-    </head>
+    <%- include ../partials/head.ejs %>
     <body>
         <section class='container'>
-            <hgroup>
-                <div class="goiburua">
-                    <img class="wikilogoa" src="img/wikilogoa.png">
-                    <div class="mantxeta">
-                        <div class="wikidosia">wikidosia</div>
-                        <div class="wikidosia-esaldia">Txiobot euskaldun, zintzo eta librea <a class="wikidosia-esteka" href="https://twitter.com/wikidosia">https://twitter.com/wikidosia</a></div>
-                    </div>
-                </div>
-            </hgroup>
+            <%- include ../partials/goiburua.ejs %>
             <div class="row aukerak">
                 <form method="get" class="form-horizontal">
                     <div class="form-group">
