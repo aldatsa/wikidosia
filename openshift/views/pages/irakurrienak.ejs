@@ -14,17 +14,24 @@
                 <h1>Artikulu irakurrienak: <%= urtea + "-" + hilabetea + "-" + eguna %></h1>
             </hgroup>
             <div class="row">
-                <div class="form-group">
-                    <label id="data-etiketa" for="data" class="control-label">Data</label>
-                    <div class="date">
-                        <div class="input-group input-append date" id="data">
-                            <input type="text" class="form-control" value="<%= urtea + "-" + hilabetea + "-" + eguna %>">
-                            <span class="input-group-addon">
-                                <i class="glyphicon glyphicon-th"></i>
-                            </span>
+                <form method="get" class="form-inline">
+                    <div class="form-group">
+                        <label for="date" class="control-label">Data</label>
+                        <div class="date">
+                            <div class="input-group input-append date" id="data">
+                                <input type="text" class="form-control" value="<%= urtea + "-" + hilabetea + "-" + eguna %>">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-th"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Bereziak barne
+                            </label>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="row">
                 <table class="table table-striped">
