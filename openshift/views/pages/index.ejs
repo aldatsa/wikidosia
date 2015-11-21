@@ -19,14 +19,14 @@
                         <tr>
                             <th>#</th>
                             <th>Izenburua</th>
-                            <th>Ikustaldiak</th>
+                            <th class="ikustaldiak">Ikustaldiak</th>
                         </tr>
                     </thead>
                     <% for (var i = 0; i < artikuluak.length; i++) { %>
                         <tr>
                             <td><%= i + 1 %>
                             <td><%= artikuluak[i].article.replace(/_/g, " ") %></td>
-                            <td><%= artikuluak[i].views %></td>
+                            <td class="ikustaldiak"><%= artikuluak[i].views %></td>
                         </tr>
                     <% } %>
                 </table>
