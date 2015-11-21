@@ -19,7 +19,6 @@
     font-size: 18px;
 }
 .izenburua {
-    margin-bottom: 40px;
     font-size: 28px;
     font-weight: bold;
     border-bottom: 1px solid #aaa;
@@ -39,6 +38,9 @@
 }
 #data {
     width: 140px;
+}
+.rankina {
+    margin-top: 40px;
 }
 .ikustaldiak {
     text-align: right;
