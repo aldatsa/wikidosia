@@ -24,9 +24,15 @@
     font-weight: bold;
     border-bottom: 1px solid #aaa;
 }
-.aukerak {
+.azalpena {
+    font-size: 16px;
+}
+.azalpena, .aukerak {
     margin-top: 50px;
     margin-bottom: 30px;
+}
+.denbora-lerroa {
+    text-align: center;
 }
 #data-etiketa {
     text-align: right;
