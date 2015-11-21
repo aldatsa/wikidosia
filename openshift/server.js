@@ -85,11 +85,20 @@ var SampleApp = function() {
         };
 
         self.routes['/'] = function(req, res) {
-            wikipedia.getMostViewedArticles("eu", 2015, 11, 19, 100, false).then(function(emaitza) {
+
+            // Atzoko data eskuratu.
+            var data = new Date();
+            data.setDate(data.getDate() - 1);
+            var urtea = data.getUTCFullYear();
+            var hilabetea = data.getUTCMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
+            var eguna = data.getUTCDate();
+
+
+            wikipedia.getMostViewedArticles("eu", urtea, hilabetea, eguna, 100, false).then(function(emaitza) {
 
                 //res.setHeader('Content-Type', 'text/html');
                 res.render('pages/index', {
-                    data: "2015-11-19",
+                    data: urtea + "-" + hilabetea + "-" + eguna,
                     artikuluak: emaitza
                 });
             });
