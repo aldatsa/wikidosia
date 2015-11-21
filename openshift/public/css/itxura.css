@@ -10,6 +10,12 @@
    width: 100%;
    height: 100%;
 }
+#data-etiketa {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    float: left;
+}
 #data {
     width: 140px;
 }
