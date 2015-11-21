@@ -11,11 +11,11 @@
     <body>
         <section class='container'>
             <hgroup>
-                <h1>Artikulu irakurrienak: <%= data %></h1>
+                <h1>Artikulu irakurrienak: <%= urtea + "-" + hilabetea + "-" + eguna %></h1>
             </hgroup>
             <div class="row">
                 <div id="data" class="input-group date">
-                    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    <input type="text" class="form-control" value="<%= urtea + "-" + hilabetea + "-" + eguna %>"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                 </div>
             </div>
             <div class="row">

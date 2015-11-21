@@ -98,7 +98,9 @@ var SampleApp = function() {
 
                 //res.setHeader('Content-Type', 'text/html');
                 res.render('pages/index', {
-                    data: urtea + "-" + hilabetea + "-" + eguna,
+                    urtea: urtea,
+                    hilabetea: hilabetea,
+                    eguna: eguna,
                     artikuluak: emaitza
                 });
             });
