@@ -1,6 +1,32 @@
-.aukerak {
-    margin-top: 40px;
+.goiburua {
+    margin-top: 20px;
+}
+.goiburua .wikilogoa {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.goiburua .mantxeta {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+.goiburua .wikidosia {
+    font-size: 36px;
+    font-weight: bold;
+}
+.goiburua .wikidosia-esaldia {
+    font-size: 18px;
+}
+.izenburua {
     margin-bottom: 40px;
+    font-size: 28px;
+    font-weight: bold;
+    border-bottom: 1px solid #aaa;
+}
+.aukerak {
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 #data-etiketa {
     text-align: right;

@@ -11,7 +11,13 @@
     <body>
         <section class='container'>
             <hgroup>
-                <h1 class="izenburua">Artikulu irakurrienak: <%= urtea + "-" + hilabetea + "-" + eguna %></h1>
+                <div class="goiburua">
+                    <img class="wikilogoa" src="img/wikilogoa.png">
+                    <div class="mantxeta">
+                        <div class="wikidosia">wikidosia</div>
+                        <div class="wikidosia-esaldia">Txiobot euskaldun, zintzo eta librea <a class="wikidosia-esteka" href="https://twitter.com/wikidosia">https://twitter.com/wikidosia</a></div>
+                    </div>
+                </div>
             </hgroup>
             <div class="row aukerak">
                 <form method="get" class="form-horizontal">
@@ -35,6 +41,7 @@
                     </div>
                 </form>
             </div>
+            <h1 class="izenburua">Euskarazko wikipediako artikulurik irakurrienak: <%= urtea + "-" + hilabetea + "-" + eguna %></h1>
             <div class="row">
                 <table class="table table-striped">
                     <thead>
