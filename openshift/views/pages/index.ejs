@@ -25,7 +25,7 @@
                     <% for (var i = 0; i < artikuluak.length; i++) { %>
                         <tr>
                             <td><%= i + 1 %>
-                            <td><%= artikuluak[i].article.replace(/_/g, " ") %></td>
+                            <td><a href="https://eu.wikipedia.org/wiki/<%= artikuluak[i].article %>"><%= artikuluak[i].article.replace(/_/g, " ") %></a></td>
                             <td class="ikustaldiak"><%= artikuluak[i].views %></td>
                         </tr>
                     <% } %>
