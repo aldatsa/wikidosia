@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-xs-offset-4 col-xs-8 col-sm-offset-0 col-sm-4 checkbox">
                             <label>
-                                <input type="checkbox"> Bereziak barne
+                                <input id="bereziak_barne" type="checkbox" value="true"> Bereziak barne
                             </label>
                         </div>
                     </div>
@@ -63,13 +63,24 @@
                 })
                 .on("changeDate", function(e) {
 
-                    var data = $("#data input").val();
-
-                    console.log(data);
-
-                    window.location.href = "?data=" + data;
+                    kargatuBerriz();
 
                 });
+
+                $("#bereziak_barne").click(function(){
+
+                    kargatuBerriz();
+
+                });
+
+                function kargatuBerriz() {
+
+                    var data = $("#data input").val();
+                    var bereziak_barne = $("#bereziak_barne").is(":checked");
+
+                    window.location.href = "?data=" + data + "&bereziak_barne=" + bereziak_barne;
+
+                }
             });
         </script>
     </body>
