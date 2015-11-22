@@ -60,6 +60,20 @@
                     weekStart: 1,
                     language: "eu",
                     autoclose: true
+                })
+                .on("changeDate", function(e) {
+                    console.log(e.date);
+                    var urtea = e.date.getFullYear();
+                    var hilabetea = e.date.getMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
+                    var eguna = e.date.getDate();
+
+                    if (eguna < 10) {
+                        eguna = "0" + eguna;
+                    }
+
+                    console.log(urtea + "-" + hilabetea + "-" + eguna);
+                    //window.location.href = "?data=" + urtea + "-" + hilabetea + "-" + eguna;
+
                 });
             });
         </script>
