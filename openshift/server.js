@@ -82,6 +82,7 @@ var SampleApp = function() {
         self.routes["/irakurrienak"] = function(req, res) {
 
             var data = req.query.data;
+            var bereziak_barne = req.query.bereziak_barne;
 
             // Erabiltzaileak data bat pasa badu URLean...
             if (data) {
@@ -92,6 +93,14 @@ var SampleApp = function() {
                 data.setDate(data.getDate() - 1);
             }
 
+            // Erabiltzaileak artikulu bereziak ere ikusi nahi baditu...
+            // Erabiltzaileak edozein gauza pasa dezakeela kontutan izan behar dugu. Pasatakoa true/false bihurtuko dugu.
+            if (bereziak_barne === "true") {
+                bereziak_barne = true;
+            } else {
+                bereziak_barne = false;
+            }
+
             var urtea = data.getFullYear();
             var hilabetea = data.getMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
             var eguna = data.getDate();
@@ -99,8 +108,8 @@ var SampleApp = function() {
             if (eguna < 10) {
                 eguna = "0" + eguna;
             }
-            
-            wikipedia.getMostViewedArticles("eu", urtea, hilabetea, eguna, 100, false).then(function(emaitza) {
+
+            wikipedia.getMostViewedArticles("eu", urtea, hilabetea, eguna, 100, bereziak_barne).then(function(emaitza) {
 
                 //res.setHeader('Content-Type', 'text/html');
                 res.render("pages/irakurrienak", {
