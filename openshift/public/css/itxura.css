@@ -57,3 +57,11 @@
    width: 100%;
    height: 100%;
 }
+#gpl-logoa-div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#gpl-logoa {
+    width: 150px;
+}
