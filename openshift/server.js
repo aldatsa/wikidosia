@@ -81,13 +81,20 @@ var SampleApp = function() {
 
         self.routes["/irakurrienak"] = function(req, res) {
 
-            // Atzoko data eskuratu.
-            var data = new Date();
-            data.setDate(data.getDate() - 1);
+            var data = req.query.data;
+
+            // Erabiltzaileak data bat pasa badu URLean...
+            if (data) {
+                data = new Date(data);
+            } else {
+                // Atzoko data eskuratu.
+                data = new Date();
+                data.setDate(data.getDate() - 1);
+            }
+
             var urtea = data.getUTCFullYear();
             var hilabetea = data.getUTCMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
             var eguna = data.getUTCDate();
-
 
             wikipedia.getMostViewedArticles("eu", urtea, hilabetea, eguna, 100, false).then(function(emaitza) {
 
