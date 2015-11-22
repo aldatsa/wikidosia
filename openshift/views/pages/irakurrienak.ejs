@@ -62,17 +62,12 @@
                     autoclose: true
                 })
                 .on("changeDate", function(e) {
-                    console.log(e.date);
-                    var urtea = e.date.getFullYear();
-                    var hilabetea = e.date.getMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
-                    var eguna = e.date.getDate();
 
-                    if (eguna < 10) {
-                        eguna = "0" + eguna;
-                    }
+                    var data = $("#data input").val();
 
-                    console.log(urtea + "-" + hilabetea + "-" + eguna);
-                    //window.location.href = "?data=" + urtea + "-" + hilabetea + "-" + eguna;
+                    console.log(data);
+
+                    window.location.href = "?data=" + data;
 
                 });
             });
