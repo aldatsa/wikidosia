@@ -83,7 +83,8 @@ var SampleApp = function() {
 
             var data = req.query.data;
             var bereziak_barne = req.query.bereziak_barne;
-
+            var checked = "";
+            
             // Erabiltzaileak data bat pasa badu URLean...
             if (data) {
                 data = new Date(data);
@@ -97,6 +98,7 @@ var SampleApp = function() {
             // Erabiltzaileak edozein gauza pasa dezakeela kontutan izan behar dugu. Pasatakoa true/false bihurtuko dugu.
             if (bereziak_barne === "true") {
                 bereziak_barne = true;
+                checked = " checked";
             } else {
                 bereziak_barne = false;
             }
@@ -117,7 +119,8 @@ var SampleApp = function() {
                     urtea: urtea,
                     hilabetea: hilabetea,
                     eguna: eguna,
-                    artikuluak: emaitza
+                    artikuluak: emaitza,
+                    checked: checked
                 });
             });
         };
