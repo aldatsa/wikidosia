@@ -13,14 +13,16 @@
     "twit": "~2.1.0",
     "request": "~2.60.0",
     "promise": "~7.0.4",
-    "ejs": "~2.3.4"
+    "ejs": "~2.3.4",
+    "bower": "~1.6.8"
   },
   "devDependencies": {},
   "bundleDependencies": [],
   "private": true,
   "scripts": {
     "start": "node ./openshift/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "if [ -d \"$OPENSHIFT_REPO_DIR\" ]; then (export HOME=\"$OPENSHIFT_REPO_DIR\"/..; $(npm bin)/bower install) else ($(npm bin)/bower install) fi && npm run setup"
   },
   "author": {
     "name": "Asier Iturralde Sarasola",
