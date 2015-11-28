@@ -1,0 +1,11 @@
+{
+  "name": "wikidosia",
+  "description": "Zure wikiegarria asetuko duen txiobot zintzo eta librea",
+  "main": "./openshift/server.js",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "GNU GPL v3",
+  "homepage": "https://github.com/aldatsa/wikidosia",
+  "moduleType": []
+}
