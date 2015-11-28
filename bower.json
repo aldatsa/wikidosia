@@ -7,5 +7,10 @@
   ],
   "license": "GNU GPL v3",
   "homepage": "https://github.com/aldatsa/wikidosia",
-  "moduleType": []
+  "moduleType": [],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "bootstrap-datepicker": "~1.5.0"
+  }
 }
