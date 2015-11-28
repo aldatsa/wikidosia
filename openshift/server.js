@@ -84,14 +84,16 @@ var SampleApp = function() {
             var data = req.query.data;
             var bereziak_barne = req.query.bereziak_barne;
             var checked = "";
-            
+
             // Erabiltzaileak data bat pasa badu URLean...
+            // Ordu-zonekin arazoak nituen. Konponbide bezala UTC (Coordinated Universal Time) erabiltzen hasi naiz.
+            // http://stackoverflow.com/questions/7556591/javascript-date-object-always-one-day-off
             if (data) {
                 data = new Date(data);
             } else {
                 // Atzoko data eskuratu.
                 data = new Date();
-                data.setDate(data.getDate() - 1);
+                data.setDate(data.getUTCDate() - 1);
             }
 
             // Erabiltzaileak artikulu bereziak ere ikusi nahi baditu...
@@ -103,9 +105,9 @@ var SampleApp = function() {
                 bereziak_barne = false;
             }
 
-            var urtea = data.getFullYear();
-            var hilabetea = data.getMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
-            var eguna = data.getDate();
+            var urtea = data.getUTCFullYear();
+            var hilabetea = data.getUTCMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
+            var eguna = data.getUTCDate();
 
             if (eguna < 10) {
                 eguna = "0" + eguna;
