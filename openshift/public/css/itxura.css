@@ -50,6 +50,11 @@
 #data {
     width: 140px;
 }
+.aukerak .jatorria.form-control {
+    width: auto;
+    display: inline-block;
+    margin-left: 10px;
+}
 .rankina {
     margin-top: 40px;
 }
