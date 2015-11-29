@@ -50,7 +50,7 @@
 #data {
     width: 140px;
 }
-.aukerak .jatorria.form-control {
+.aukerak #sarbidea.form-control {
     width: auto;
     display: inline-block;
     margin-left: 10px;

@@ -83,6 +83,7 @@ var SampleApp = function() {
 
             var data = req.query.data;
             var bereziak_barne = req.query.bereziak_barne;
+            var sarbidea = req.query.sarbidea;
             var checked = "";
 
             // Erabiltzaileak data bat pasa badu URLean...
@@ -113,7 +114,15 @@ var SampleApp = function() {
                 eguna = "0" + eguna;
             }
 
-            wikipedia.getMostViewedArticles("eu", urtea, hilabetea, eguna, 100, bereziak_barne).then(function(emaitza) {
+            // sarbidea ez bada zehaztu edo mota ezezagun bat eskatu bada...
+            if (sarbidea !== "all-access" && sarbidea !== "desktop" && sarbidea !== "mobile-app" && sarbidea !== "mobile-web") {
+
+                // Aukera lehenetsia ezarri.
+                sarbidea = "all-access";
+
+            }
+
+            wikipedia.getMostViewedArticles("eu", urtea, hilabetea, eguna, sarbidea, 100, bereziak_barne).then(function(emaitza) {
 
                 //res.setHeader('Content-Type', 'text/html');
                 res.render("pages/irakurrienak", {
@@ -122,7 +131,8 @@ var SampleApp = function() {
                     hilabetea: hilabetea,
                     eguna: eguna,
                     artikuluak: emaitza,
-                    checked: checked
+                    checked: checked,
+                    sarbidea: sarbidea
                 });
             });
         };

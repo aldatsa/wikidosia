@@ -19,12 +19,12 @@
                             </div>
                         </div>
                         <div class="col-xs-offset-4 col-xs-8 col-sm-offset-0 col-sm-4 form-group">
-                            <label>Jatorria
-                                <select class="jatorria form-control">
-                                    <option value="all-access" selected>Guztiak</option>
-                                    <option value="desktop">Mahaigainekotik</option>
-                                    <option value="mobile-app">Mugikorretik (aplikazioa)</option>
-                                    <option value="mobile-web">Mugikorretik (web)</option>
+                            <label>Sarbidea
+                                <select id="sarbidea" class="form-control">
+                                    <option value="all-access"<% if (sarbidea === "all-access") { %> selected<% } %>>Guztiak</option>
+                                    <option value="desktop"<% if (sarbidea === "desktop") { %> selected<% } %>>Mahaigainekotik</option>
+                                    <option value="mobile-app"<% if (sarbidea === "mobile-app") { %> selected<% } %>>Mugikorretik (aplikazioa)</option>
+                                    <option value="mobile-web"<% if (sarbidea === "mobile-web") { %> selected<% } %>>Mugikorretik (web)</option>
                                 </select>
                             </label>
                         </div>
@@ -83,12 +83,19 @@
 
                 });
 
+                $("#sarbidea").change(function() {
+
+                    kargatuBerriz();
+
+                });
+
                 function kargatuBerriz() {
 
                     var data = $("#data input").val();
                     var bereziak_barne = $("#bereziak_barne").is(":checked");
+                    var sarbidea = $("#sarbidea").val();
 
-                    window.location.href = "?data=" + data + "&bereziak_barne=" + bereziak_barne;
+                    window.location.href = "?data=" + data + "&bereziak_barne=" + bereziak_barne + "&sarbidea=" + sarbidea;
 
                 }
             });
