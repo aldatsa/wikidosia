@@ -44,8 +44,16 @@
 .denbora-lerroa {
     text-align: center;
 }
+#data-div {
+    margin-bottom: 22px;
+}
 #data-etiketa {
     text-align: right;
+    margin-right: 10px;
+    vertical-align: 12px;
+}
+#data-edukiontzia {
+    display: inline-block;
 }
 #data {
     width: 140px;

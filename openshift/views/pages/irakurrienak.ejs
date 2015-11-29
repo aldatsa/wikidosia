@@ -7,10 +7,10 @@
             <div class="row aukerak">
                 <form method="get" class="form-horizontal">
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-4">
-                            <label id="data-etiketa" class="col-xs-offset-2 col-xs-2 control-label">Data</label>
-                            <div class="date">
-                                <div class="col-xs-8 input-group input-append date" id="data">
+                        <div id="data-div" class="col-xs-12 col-md-4 text-center form-group">
+                            <label id="data-etiketa" class="control-label">Data</label>
+                            <div id="data-edukiontzia" class="date">
+                                <div class="input-group input-append date" id="data">
                                     <input type="text" class="form-control" value="<%= urtea + "-" + hilabetea + "-" + eguna %>">
                                     <span class="input-group-addon">
                                         <i class="glyphicon glyphicon-th"></i>
@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-offset-4 col-xs-8 col-sm-offset-0 col-sm-4 form-group">
+                        <div class="col-xs-12 col-md-4 text-center form-group">
                             <label>Sarbidea
                                 <select id="sarbidea" class="form-control">
                                     <option value="all-access"<% if (sarbidea === "all-access") { %> selected<% } %>>Guztiak</option>
@@ -28,7 +28,7 @@
                                 </select>
                             </label>
                         </div>
-                        <div class="col-xs-offset-4 col-xs-8 col-sm-offset-0 col-sm-4 checkbox">
+                        <div class="col-xs-12 col-md-4 text-center checkbox">
                             <label>
                                 <input id="bereziak_barne" type="checkbox"<%= checked %>> Bereziak barne
                             </label>
