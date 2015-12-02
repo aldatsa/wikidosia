@@ -126,6 +126,7 @@ var SampleApp = function() {
 
                 //res.setHeader('Content-Type', 'text/html');
                 res.render("pages/irakurrienak", {
+                    bista: "irakurrienak",
                     title: "Wikidosia - Irakurrienak " + urtea + "-"  + hilabetea + "-" + eguna,
                     urtea: urtea,
                     hilabetea: hilabetea,
@@ -140,6 +141,7 @@ var SampleApp = function() {
         self.routes["/"] = function(req, res) {
 
             res.render("pages/index", {
+                bista: "hasiera",
                 title: "Wikidosia"
             });
 
