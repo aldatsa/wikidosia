@@ -2,8 +2,8 @@
     margin-top: 20px;
 }
 .goiburua .wikilogoa {
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 135px;
     float: left;
 }
 .goiburua .mantxeta {
@@ -23,12 +23,27 @@
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     background-color: #ffffff;
+    color: #333;
 }
 .navbar .container-fluid {
     padding-left: 0px;
 }
 .navbar .navbar-collapse {
     padding-left: 0px;
+}
+.navbar-nav {
+    margin-top: 10px;
+}
+.navbar-nav > li {
+    margin-right: 15px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #333;
+    padding: 5px;
+    font-size: 16px;
+}
+.navbar .active {
+    border-bottom: 2px solid #337AB7;
 }
 .izenburua {
     font-size: 28px;
