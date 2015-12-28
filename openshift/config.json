@@ -7,5 +7,6 @@
         "access_token_secret": "KOPIATU HEMEN ZURE APLIKAZIOAREN TOKENAREN SEKRETUA"
 
     },
-    "schedule_job": "IDATZI HEMEN CRON MOTAKO KONFIGURAZIO KATEA"
+    "schedule_job": "IDATZI HEMEN CRON MOTAKO KONFIGURAZIO KATEA",
+    "schedule_job_most_viewed": "IDATZI HEMEN CRON MOTAKO KONFIGURAZIO KATEA"
 }
