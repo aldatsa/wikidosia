@@ -54,6 +54,9 @@
                         </tr>
                     <% } %>
                 </table>
+                <% if (artikuluak.length === 0) { %>
+                    <div class="emaitzik-ez">Ez dago bat datorren artikulurik</div>
+                <% } %>
             </div>
 
             <%- include ../partials/oina.ejs %>
