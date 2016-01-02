@@ -110,6 +110,10 @@ var SampleApp = function() {
             var hilabetea = data.getUTCMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
             var eguna = data.getUTCDate();
 
+            if (hilabetea < 10) {
+                hilabetea = "0" + hilabetea;
+            }
+
             if (eguna < 10) {
                 eguna = "0" + eguna;
             }
