@@ -2,12 +2,22 @@
 <html lang="eu">
     <%- include ../partials/head.ejs %>
     <body>
+        <link type="text/css" rel="stylesheet" href="/bower_components/select2/dist/css/select2.min.css"></link>
         <section class='container'>
             <%- include ../partials/goiburua.ejs %>
             <div class="row azalpena">
-                Konparazioak
+                <div class="form-group">
+                    <select class="izenburuak form-control" multiple="multiple"></select>
+                </div>
             </div>
             <%- include ../partials/oina.ejs %>
         </section>
+        <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/bower_components/select2/dist/js/select2.min.js"></script>
+        <script type="text/javascript">
+            $(".izenburuak").select2({
+                placeholder: "Idatzi artikuluen izenak",
+            });
+        </script>
     </body>
-</html>    
+</html>
