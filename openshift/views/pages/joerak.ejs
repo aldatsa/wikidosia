@@ -15,38 +15,44 @@
         <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/bower_components/select2/dist/js/select2.min.js"></script>
         <script type="text/javascript">
-            $(".izenburuak").select2({
-                placeholder: "Idatzi artikuluen izenak",
+            $(document).ready(function() {
 
-                // AJAX bidez erabiltzaileak idatzi duenarekin bat datozen artikuluen izenak eskuratu
-                ajax: {
-                    url: 'https://eu.wikipedia.org/w/api.php',
-                    dataType: 'jsonp',
-                    delay: 100,
-                    jsonpCallback: 'iradokizunenAtzeraDeia',
-                    data: function (search) {
-                        return {
-                            'action': 'query',
-                            'list': 'search',
-                            'format': 'json',
-                            'srsearch': search.term
-                        };
-                    },
-                    processResults: function (data) {
-                        // Mediawiki-ren APIak itzulitako emaitzak Select2-ren formatura bihurtu.
-                        var results = [];
-                        if (data.query && data.query.search) {
-                            results = data.query.search.map(function (elem) {
-                                return {
-                                    id: elem.title.replace(/ /g, '_'),
-                                    text: elem.title
-                                };
-                            });
-                        }
-                        return {results: results};
-                    },
-                    cache: true
-                }
+                // Ez dut ezertarako erabiltzen baina hau gabe iradokizunenAtzeraDeia is not a function errorea ematen du select2-ren ajax deiak.
+                function iradokizunenAtzeraDeia() {}
+
+                $(".izenburuak").select2({
+                    placeholder: "Idatzi artikuluen izenak",
+
+                    // AJAX bidez erabiltzaileak idatzi duenarekin bat datozen artikuluen izenak eskuratu
+                    ajax: {
+                        url: 'https://eu.wikipedia.org/w/api.php',
+                        dataType: 'jsonp',
+                        delay: 100,
+                        jsonpCallback: 'iradokizunenAtzeraDeia',
+                        data: function (search) {
+                            return {
+                                'action': 'query',
+                                'list': 'search',
+                                'format': 'json',
+                                'srsearch': search.term
+                            };
+                        },
+                        processResults: function (data) {
+                            // Mediawiki-ren APIak itzulitako emaitzak Select2-ren formatura bihurtu.
+                            var results = [];
+                            if (data.query && data.query.search) {
+                                results = data.query.search.map(function (elem) {
+                                    return {
+                                        id: elem.title.replace(/ /g, '_'),
+                                        text: elem.title
+                                    };
+                                });
+                            }
+                            return {results: results};
+                        },
+                        cache: true
+                    }
+                });
             });
         </script>
     </body>
