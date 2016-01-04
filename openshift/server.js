@@ -158,6 +158,15 @@ var SampleApp = function() {
             });
         };
 
+        self.routes["/konparazioak"] = function(req, res) {
+
+            res.render("pages/konparazioak", {
+                bista: "konparazioak",
+                title: "Wikidosia"
+            });
+
+        };
+
         self.routes["/"] = function(req, res) {
 
             res.render("pages/index", {
