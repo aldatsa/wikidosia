@@ -2,7 +2,9 @@
 <html lang="eu">
     <%- include ../partials/head.ejs %>
     <body>
-        <link type="text/css" rel="stylesheet" href="/bower_components/select2/dist/css/select2.min.css"></link>
+        <link href="/bower_components/select2/dist/css/select2.min.css" type="text/css" rel="stylesheet"></link>
+        <link href="/bower_components/c3/c3.min.css" rel="stylesheet" type="text/css">
+
         <section class='container'>
             <%- include ../partials/goiburua.ejs %>
             <div class="row azalpena">
@@ -14,6 +16,7 @@
         </section>
         <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="/bower_components/select2/dist/js/select2.min.js"></script>
+        <script type="text/javascript" src="/bower_components/c3/c3.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
 
