@@ -218,6 +218,12 @@ var SampleApp = function() {
 
         var wikidosia = new Wikidosia(config);
 
+        wikipedia.getDailyPageViews("eu", "Euskara", "2016", "01", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
+
+            console.log(emaitza);
+
+        });
+
         //  Start the app on the specific interface (and port).
         self.app.listen(self.port, self.ipaddress, function() {
             console.log('%s: Node server started on %s:%d ...',
