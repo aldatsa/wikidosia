@@ -137,8 +137,24 @@ var SampleApp = function() {
                     eguna: eguna,
                     artikuluak: emaitza,
                     checked: checked,
-                    sarbidea: sarbidea
+                    sarbidea: sarbidea,
+                    errorea: false
                 });
+
+            }, function(errorea) {
+
+                res.render("pages/irakurrienak", {
+                    bista: "irakurrienak",
+                    title: "Wikidosia - Irakurrienak " + urtea + "-"  + hilabetea + "-" + eguna,
+                    urtea: urtea,
+                    hilabetea: hilabetea,
+                    eguna: eguna,
+                    artikuluak: [],
+                    checked: checked,
+                    sarbidea: sarbidea,
+                    errorea: true
+                });
+
             });
         };
 
