@@ -74,7 +74,12 @@
                     },
                     axis: {
                         x: {
-                            type: "timeseries"
+                            type: "timeseries",
+                            tick: {
+                                format: function (x) {
+                                    return x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate();
+                                }
+                            }
                         }
                     }
                 });
