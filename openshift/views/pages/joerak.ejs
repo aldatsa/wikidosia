@@ -66,9 +66,18 @@
                 var grafikoa = c3.generate({
                     bindto: '#grafikoa',
                     data: {
-                        columns: [
-                            datuak["Euskara"]["ikustaldiak"],
-                        ]
+                        x: 'timestamp',
+                        xFormat: '%Y%m%d',
+                        json: datuak,
+                        keys: {
+                            x: 'timestamp',
+                            value: ["views"]
+                        }
+                    },
+                    axis: {
+                        x: {
+                            type: "timeseries"
+                        }
                     }
                 });
             });

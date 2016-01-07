@@ -161,29 +161,17 @@ var SampleApp = function() {
         self.routes["/joerak"] = function(req, res) {
 
             var artikulua = "Euskara";
-            var datuak = {};
-            var datak = [];
-            var ikustaldiak = [];
+
             wikipedia.getDailyPageViews("eu", artikulua, "2016", "01", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
 
-                ikustaldiak.push(artikulua);
-                
                 for (var i = 0; i < emaitza.length; i++) {
-
-                    console.log(emaitza[i]);
-                    datak.push(emaitza[i].timestamp);
-                    ikustaldiak.push(emaitza[i].views);
+                    emaitza[i].timestamp = emaitza[i].timestamp.substring(0, 8);
                 }
-
-                datuak[artikulua] = {
-                    datak: datak,
-                    ikustaldiak: ikustaldiak
-                };
 
                 res.render("pages/joerak", {
                     bista: "joerak",
                     title: "Wikidosia",
-                    datuak: datuak
+                    datuak: emaitza
                 });
 
             });
