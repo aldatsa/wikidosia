@@ -164,10 +164,6 @@ var SampleApp = function() {
 
             wikipedia.getDailyPageViews("eu", artikulua, "2016", "01", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
 
-                for (var i = 0; i < emaitza.length; i++) {
-                    emaitza[i].timestamp = emaitza[i].timestamp.substring(0, 8);
-                }
-
                 res.render("pages/joerak", {
                     bista: "joerak",
                     title: "Wikidosia",
