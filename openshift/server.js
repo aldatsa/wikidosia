@@ -162,7 +162,7 @@ var SampleApp = function() {
 
             var artikulua = "Euskara";
 
-            wikipedia.getDailyPageViews("eu", artikulua, "2016", "01", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
+            wikipedia.getDailyPageViews("eu", artikulua, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
 
                 res.render("pages/joerak", {
                     bista: "joerak",
