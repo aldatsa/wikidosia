@@ -24,11 +24,6 @@
 
                 var datuak = <%- JSON.stringify(datuak) %>;
 
-                for (var i = 0; i < datuak.length; i++) {
-                    console.log(datuak[i].timestamp);
-                    console.log(datuak[i].views);
-                }
-
                 // Ez dut ezertarako erabiltzen baina hau gabe iradokizunenAtzeraDeia is not a function errorea ematen du select2-ren ajax deiak.
                 function iradokizunenAtzeraDeia() {}
 
@@ -66,12 +61,13 @@
                     }
                 });
 
+                console.log(datuak["Euskara"]);
+
                 var grafikoa = c3.generate({
                     bindto: '#grafikoa',
                     data: {
                         columns: [
-                            ['data1', 30, 200, 100, 400, 150, 250],
-                            ['data2', 50, 20, 10, 40, 15, 25]
+                            datuak["Euskara"]["ikustaldiak"],
                         ]
                     }
                 });
