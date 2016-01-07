@@ -160,9 +160,14 @@ var SampleApp = function() {
 
         self.routes["/joerak"] = function(req, res) {
 
-            res.render("pages/joerak", {
-                bista: "joerak",
-                title: "Wikidosia"
+            wikipedia.getDailyPageViews("eu", "Euskara", "2016", "01", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
+
+                res.render("pages/joerak", {
+                    bista: "joerak",
+                    title: "Wikidosia",
+                    datuak: emaitza 
+                });
+
             });
 
         };
@@ -217,12 +222,6 @@ var SampleApp = function() {
         var config = JSON.parse(fs.readFileSync(self.config_path + 'config.json'));
 
         var wikidosia = new Wikidosia(config);
-
-        wikipedia.getDailyPageViews("eu", "Euskara", "2016", "01", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
-
-            console.log(emaitza);
-
-        });
 
         //  Start the app on the specific interface (and port).
         self.app.listen(self.port, self.ipaddress, function() {

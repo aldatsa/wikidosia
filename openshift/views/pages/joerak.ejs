@@ -22,6 +22,13 @@
         <script type="text/javascript">
             $(document).ready(function() {
 
+                var datuak = <%- JSON.stringify(datuak) %>;
+
+                for (var i = 0; i < datuak.length; i++) {
+                    console.log(datuak[i].timestamp);
+                    console.log(datuak[i].views);
+                }
+
                 // Ez dut ezertarako erabiltzen baina hau gabe iradokizunenAtzeraDeia is not a function errorea ematen du select2-ren ajax deiak.
                 function iradokizunenAtzeraDeia() {}
 
