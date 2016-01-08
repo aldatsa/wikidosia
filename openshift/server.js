@@ -161,13 +161,22 @@ var SampleApp = function() {
         self.routes["/joerak"] = function(req, res) {
 
             var artikulua = "Euskara";
+            var datuak = [];
 
             wikipedia.getDailyPageViews("eu", artikulua, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
 
+                datuak[0] = ["data"];
+                datuak[1] = [artikulua];
+
+                emaitza.forEach(function(datua) {
+                    datuak[0].push(datua.timestamp);
+                    datuak[1].push(datua.views);
+                });
+                console.log(datuak);
                 res.render("pages/joerak", {
                     bista: "joerak",
                     title: "Wikidosia",
-                    datuak: emaitza
+                    datuak: datuak
                 });
 
             });

@@ -64,12 +64,9 @@
                 var grafikoa = c3.generate({
                     bindto: '#grafikoa',
                     data: {
-                        x: 'timestamp',
+                        x: 'data',
                         xFormat: '%Y%m%d00',
-                        columns: [
-                            ["timestamp", "2016010100", "2016010200", "2016010300", "2016010400", "2016010500"],
-                            ["bat", "1", "2", "3", "4", "5"]
-                        ]
+                        columns: datuak
                     },
                     axis: {
                         x: {
