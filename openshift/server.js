@@ -2,6 +2,7 @@
 //  OpenShift sample Node application
 var express   = require('express');
 var fs        = require('fs');
+var Promise   = require('promise');
 var Wikidosia = require('../lib/wikidosia');
 var Wikipedia = require('../lib/wikipedia');
 var wikipedia = new Wikipedia();
@@ -160,24 +161,64 @@ var SampleApp = function() {
 
         self.routes["/joerak"] = function(req, res) {
 
-            var artikulua = "Euskara";
+            var artikuluak = ["Beñat_Gaztelumendi", "Alaia_Martin", "Unai_Agirre", "Jon_Maia"];
+
+            // Wikipediako artikuluen datuak eskuratzeko egingo ditugun deien promise-ak gordetzeko array-a.
+            var promiseak = [];
+
+            // Datuak array-ko lehen elementuan daten array-a gordeko dugu.
+            // Ondorengo elementuetan artikulu bakoitzaren ikustaldien datuak.
             var datuak = [];
 
-            wikipedia.getDailyPageViews("eu", artikulua, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents").then(function(emaitza) {
+            // Daten array-a gehitu lehen elementu bezala array-aren izena, "data", duelarik.
+            datuak[0] = ["data"];
 
-                datuak[0] = ["data"];
-                datuak[1] = [artikulua];
+            // Artikulu bakoitzeko lehen elementu bezala artikuluaren izena duen array bat gehitu datuen array-ra.
+            artikuluak.forEach(function(artikulua) {
+                datuak.push([artikulua]);
+            });
 
-                emaitza.forEach(function(datua) {
-                    datuak[0].push(datua.timestamp);
-                    datuak[1].push(datua.views);
+            // Artikulu bakoitzaren datuak eskuratuko ditugu Wikipediaren APIa erabiliz.
+            // Wikipedia objektuaren getDailyPageViews metodoak itzultzen dituen promise-ak array batean gordeko ditugu.
+            artikuluak.forEach(function(artikulua) {
+
+                promiseak.push(wikipedia.getDailyPageViews("eu", artikulua, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents"));
+
+            });
+
+            // Datu guztiak eskuratu ditugunean...
+            Promise.all(promiseak).then(function(emaitzak) {
+
+                // Artikulu bakoitzaren datuekin...
+                emaitzak.forEach(function(emaitza, indizea) {
+
+                    // Egun bakoitzeko datuekin (data eta ikustaldiak)...
+                    emaitza.forEach(function(datua) {
+
+                        // Lehen artikulua bada, egun guztien datak gordeko ditugu daten array-an.
+                        if (indizea === 0) {
+
+                            datuak[0].push(datua.timestamp);
+
+                        }
+
+                        // Artikuluaren ikustaldiak gorde dagokion array-an.
+                        datuak[indizea + 1].push(datua.views);
+
+                    });
+
                 });
-                console.log(datuak);
+
+                // Joerak orria errendatu...
                 res.render("pages/joerak", {
                     bista: "joerak",
                     title: "Wikidosia",
                     datuak: datuak
                 });
+
+            }, function(errorea) {
+
+                console.log(errorea);
 
             });
 
