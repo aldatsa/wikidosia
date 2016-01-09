@@ -23,11 +23,15 @@
             $(document).ready(function() {
 
                 var datuak = <%- JSON.stringify(datuak) %>;
-
+                var artikuluak = <%- JSON.stringify(artikuluak) %>;
+                console.log(artikuluak);
                 // Ez dut ezertarako erabiltzen baina hau gabe iradokizunenAtzeraDeia is not a function errorea ematen du select2-ren ajax deiak.
                 function iradokizunenAtzeraDeia() {}
 
                 $(".izenburuak").select2({
+
+                    data: artikuluak,
+
                     placeholder: "Idatzi artikuluen izenak",
 
                     // AJAX bidez erabiltzaileak idatzi duenarekin bat datozen artikuluen izenak eskuratu
@@ -60,6 +64,10 @@
                         cache: true
                     }
                 });
+
+                <% for (var i = 0; i < artikuluak.length; i++) { %>
+                $(".izenburuak").select2("val", "<%= artikuluak[i].id %>");
+                <% } %>
 
                 var grafikoa = c3.generate({
                     bindto: '#grafikoa',

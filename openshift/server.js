@@ -162,23 +162,42 @@ var SampleApp = function() {
 
         self.routes["/joerak"] = function(req, res) {
 
-            var artikuluak = req.query.artikuluak.split(",");
+            var artikuluak = [];
+            var artikuluen_id_ak = [];
 
-            // Erabiltzaileak ez badu artikulurik eskatu...
-            if (artikuluak.length === 0) {
+            // URLan artikulu batzuk eskatu baditu erabiltzaileak...
+            if (req.query.artikuluak) {
 
-                // Artikulu lehenetsiak erabili.
-                artikuluak = ["Beñat_Gaztelumendi", "Alaia_Martin", "Unai_Agirre", "Jon_Maia"];
+                artikuluen_id_ak = req.query.artikuluak.split(",");
 
             }
 
-            wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu", artikuluak, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents").then(function(erantzuna) {
+            // Erabiltzaileak ez badu artikulurik eskatu...
+            if (artikuluen_id_ak.length === 0) {
+
+                // Artikulu lehenetsiak erabili.
+                artikuluen_id_ak = ["Beñat_Gaztelumendi", "Alaia_Martin", "Unai_Agirre", "Jon_Maia"];
+
+            }
+
+            // Artikuluen id eta izenburuak gorde array batean.
+            artikuluen_id_ak.forEach(function(artikuluaren_id) {
+
+                artikuluak.push({
+                    id: artikuluaren_id,
+                    text: artikuluaren_id.replace(/_/g, ' ')
+                });
+
+            });
+
+            wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu", artikuluen_id_ak, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents").then(function(erantzuna) {
 
                 // Joerak orria errendatu...
                 res.render("pages/joerak", {
                     bista: "joerak",
                     title: "Wikidosia",
-                    datuak: erantzuna
+                    datuak: erantzuna,
+                    artikuluak: artikuluak
                 });
 
             });
