@@ -6,6 +6,7 @@ var Promise   = require('promise');
 var Wikidosia = require('../lib/wikidosia');
 var Wikipedia = require('../lib/wikipedia');
 var wikipedia = new Wikipedia();
+var wikidosia;
 
 /**
  *  Define the sample application.
@@ -163,7 +164,7 @@ var SampleApp = function() {
 
             var artikuluak = ["Beñat_Gaztelumendi", "Alaia_Martin", "Unai_Agirre", "Jon_Maia"];
 
-            wikidosia.eskuratuArtikuluenIkustaldienHistoria(artikuluak).then(function(erantzuna) {
+            wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu", artikuluak, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents").then(function(erantzuna) {
 
                 // Joerak orria errendatu...
                 res.render("pages/joerak", {
@@ -225,7 +226,7 @@ var SampleApp = function() {
 
         var config = JSON.parse(fs.readFileSync(self.config_path + 'config.json'));
 
-        var wikidosia = new Wikidosia(config);
+        wikidosia = new Wikidosia(config);
 
         //  Start the app on the specific interface (and port).
         self.app.listen(self.port, self.ipaddress, function() {
