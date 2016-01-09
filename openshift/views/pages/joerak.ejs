@@ -28,7 +28,7 @@
                 // Ez dut ezertarako erabiltzen baina hau gabe iradokizunenAtzeraDeia is not a function errorea ematen du select2-ren ajax deiak.
                 function iradokizunenAtzeraDeia() {}
 
-                $(".izenburuak").select2({
+                $izenburuak = $(".izenburuak").select2({
 
                     data: artikuluak,
 
@@ -63,7 +63,9 @@
                         },
                         cache: true
                     }
-                }).val("Beñat_Gaztelumendi").trigger("change");
+                });
+
+                $izenburuak.val(["Beñat_Gaztelumendi", "Alaia_Martin", "Unai_Agirre", "Jon_Maia"]).trigger("change");
 
                 var grafikoa = c3.generate({
                     bindto: '#grafikoa',
