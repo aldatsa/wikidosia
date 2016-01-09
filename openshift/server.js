@@ -175,7 +175,7 @@ var SampleApp = function() {
 
             // Artikulu bakoitzeko lehen elementu bezala artikuluaren izena duen array bat gehitu datuen array-ra.
             artikuluak.forEach(function(artikulua) {
-                datuak.push([artikulua]);
+                datuak.push([artikulua.replace(/_/g, " ")]);
             });
 
             // Artikulu bakoitzaren datuak eskuratuko ditugu Wikipediaren APIa erabiliz.
