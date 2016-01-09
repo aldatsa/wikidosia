@@ -197,7 +197,8 @@ var SampleApp = function() {
                     bista: "joerak",
                     title: "Wikidosia",
                     datuak: erantzuna,
-                    artikuluak: artikuluak
+                    artikuluak: artikuluak,
+                    artikuluen_id_ak: artikuluen_id_ak
                 });
 
             });
