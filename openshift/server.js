@@ -162,7 +162,15 @@ var SampleApp = function() {
 
         self.routes["/joerak"] = function(req, res) {
 
-            var artikuluak = ["Beñat_Gaztelumendi", "Alaia_Martin", "Unai_Agirre", "Jon_Maia"];
+            var artikuluak = req.query.artikuluak.split(",");
+
+            // Erabiltzaileak ez badu artikulurik eskatu...
+            if (artikuluak.length === 0) {
+
+                // Artikulu lehenetsiak erabili.
+                artikuluak = ["Beñat_Gaztelumendi", "Alaia_Martin", "Unai_Agirre", "Jon_Maia"];
+
+            }
 
             wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu", artikuluak, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents").then(function(erantzuna) {
 
