@@ -63,11 +63,7 @@
                         },
                         cache: true
                     }
-                });
-
-                <% for (var i = 0; i < artikuluak.length; i++) { %>
-                $(".izenburuak").select2("val", "<%= artikuluak[i].id %>");
-                <% } %>
+                }).val("Beñat_Gaztelumendi").trigger("change");
 
                 var grafikoa = c3.generate({
                     bindto: '#grafikoa',
