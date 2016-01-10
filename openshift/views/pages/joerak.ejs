@@ -163,7 +163,24 @@
                             tick: {
                                 rotate: 90,
                                 format: function (x) {
-                                    return x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate();
+
+                                    var urtea = x.getUTCFullYear();
+                                    var hilabetea = x.getUTCMonth() + 1;
+                                    var eguna = x.getUTCDate();
+
+                                    if (hilabetea < 10) {
+
+                                        hilabetea = "0" + hilabetea;
+
+                                    }
+
+                                    if (eguna < 10) {
+
+                                        eguna = "0" + eguna;
+
+                                    }
+
+                                    return urtea + "-" + hilabetea + "-" + eguna;
                                 }
                             }
                         }
