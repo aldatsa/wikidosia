@@ -165,6 +165,36 @@ var SampleApp = function() {
             var artikuluak = [];
             var artikuluen_id_ak = [];
 
+            var hasierako_data = req.query.hasierako_data;
+            var amaierako_data = req.query.amaierako_data;
+
+            // Erabiltzaileak hasierako data bat pasa badu URLean...
+            // Ordu-zonekin arazoak nituen. Konponbide bezala UTC (Coordinated Universal Time) erabiltzen hasi naiz.
+            // http://stackoverflow.com/questions/7556591/javascript-date-object-always-one-day-off
+            if (hasierako_data) {
+
+                hasierako_data = new Date(hasierako_data);
+
+            } else {
+
+                // 2015-01-01 erabiliko dugu hasierako data lehenetsi bezala.
+                // Pageviews APIak data horretatik aurrerako datuak eskaintzen ditu.
+                hasierako_data = new Date(2015, 10, 1);
+
+            }
+
+            var hasierako_urtea = hasierako_data.getUTCFullYear();
+            var hasierako_hilabetea = hasierako_data.getUTCMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
+            var hasierako_eguna = hasierako_data.getUTCDate();
+
+            if (hasierako_hilabetea < 10) {
+                hasierako_hilabetea = "0" + hasierako_hilabetea;
+            }
+
+            if (hasierako_eguna < 10) {
+                hasierako_eguna = "0" + hasierako_eguna;
+            }
+
             // URLan artikulu batzuk eskatu baditu erabiltzaileak...
             if (req.query.artikuluak) {
 
@@ -190,7 +220,7 @@ var SampleApp = function() {
 
             });
 
-            wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu", artikuluen_id_ak, "2015", "12", "01", "2016", "01", "05", "all-access", "all-agents").then(function(erantzuna) {
+            wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu", artikuluen_id_ak, hasierako_urtea, hasierako_hilabetea, hasierako_eguna, "2016", "01", "05", "all-access", "all-agents").then(function(erantzuna) {
 
                 // Joerak orria errendatu...
                 res.render("pages/joerak", {
