@@ -109,16 +109,8 @@ var SampleApp = function() {
             }
 
             var urtea = data.getUTCFullYear();
-            var hilabetea = data.getUTCMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
-            var eguna = data.getUTCDate();
-
-            if (hilabetea < 10) {
-                hilabetea = "0" + hilabetea;
-            }
-
-            if (eguna < 10) {
-                eguna = "0" + eguna;
-            }
+            var hilabetea = wikidosia.itzuliHilabeteaKatea(data);
+            var eguna = wikidosia.itzuliEgunaKatea(data);
 
             // sarbidea ez bada zehaztu edo mota ezezagun bat eskatu bada...
             if (sarbidea !== "all-access" && sarbidea !== "desktop" && sarbidea !== "mobile-app" && sarbidea !== "mobile-web") {
@@ -184,16 +176,8 @@ var SampleApp = function() {
             }
 
             var hasierako_urtea = hasierako_data.getUTCFullYear();
-            var hasierako_hilabetea = hasierako_data.getUTCMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
-            var hasierako_eguna = hasierako_data.getUTCDate();
-
-            if (hasierako_hilabetea < 10) {
-                hasierako_hilabetea = "0" + hasierako_hilabetea;
-            }
-
-            if (hasierako_eguna < 10) {
-                hasierako_eguna = "0" + hasierako_eguna;
-            }
+            var hasierako_hilabetea = wikidosia.itzuliHilabeteaKatea(hasierako_data);
+            var hasierako_eguna = wikidosia.itzuliEgunaKatea(hasierako_data);
 
             // URLan artikulu batzuk eskatu baditu erabiltzaileak...
             if (req.query.artikuluak) {
