@@ -64,7 +64,7 @@
                 })
                 .on("changeDate", function(e) {
 
-                    //kargatuBerriz();
+                    kargatuBerriz();
 
                 });
 
@@ -78,9 +78,18 @@
                 })
                 .on("changeDate", function(e) {
 
-                    //kargatuBerriz();
+                    kargatuBerriz();
 
                 });
+
+                function kargatuBerriz() {
+
+                    var hasierako_data = $("#hasierako-data input").val();
+                    var amaierako_data = $("#amaierako-data input").val();
+
+                    window.location.href = "?hasierako_data=" + hasierako_data + "&amaierako_data=" + amaierako_data;
+
+                }
 
                 // Ez dut ezertarako erabiltzen baina hau gabe iradokizunenAtzeraDeia is not a function errorea ematen du select2-ren ajax deiak.
                 function iradokizunenAtzeraDeia() {}
