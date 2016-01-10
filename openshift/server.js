@@ -210,6 +210,9 @@ var SampleApp = function() {
                 res.render("pages/joerak", {
                     bista: "joerak",
                     title: "Wikidosia",
+                    hasierako_urtea: hasierako_urtea,
+                    hasierako_hilabetea: hasierako_hilabetea,
+                    hasierako_eguna: hasierako_eguna,
                     datuak: erantzuna,
                     artikuluak: artikuluak,
                     artikuluen_id_ak: artikuluen_id_ak
