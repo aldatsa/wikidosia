@@ -87,15 +87,17 @@
                     var hasierako_data = $("#hasierako-data input").val();
                     var amaierako_data = $("#amaierako-data input").val();
 
+                    var artikuluak = $(".izenburuak").val().join(",");
+
                     if (hasierako_data > amaierako_data) {
 
                         alert("Hasierako datak amaierakoa baino lehenagokoa izan behar du.");
 
                         return false;
-                        
+
                     }
 
-                    window.location.href = "?hasierako_data=" + hasierako_data + "&amaierako_data=" + amaierako_data;
+                    window.location.href = "?artikuluak=" + artikuluak + "&hasierako_data=" + hasierako_data + "&amaierako_data=" + amaierako_data;
 
                 }
 
@@ -140,6 +142,12 @@
                 });
 
                 $izenburuak.val(artikuluen_id_ak).trigger("change");
+
+                $izenburuak.on("change", function (e) {
+
+                    kargatuBerriz();
+
+                });
 
                 var grafikoa = c3.generate({
                     bindto: '#grafikoa',
