@@ -87,6 +87,14 @@
                     var hasierako_data = $("#hasierako-data input").val();
                     var amaierako_data = $("#amaierako-data input").val();
 
+                    if (hasierako_data > amaierako_data) {
+
+                        alert("Hasierako datak amaierakoa baino lehenagokoa izan behar du.");
+
+                        return false;
+                        
+                    }
+
                     window.location.href = "?hasierako_data=" + hasierako_data + "&amaierako_data=" + amaierako_data;
 
                 }
