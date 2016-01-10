@@ -175,9 +175,28 @@ var SampleApp = function() {
 
             }
 
+            // Erabiltzaileak hasierako data bat pasa badu URLean...
+            // Ordu-zonekin arazoak nituen. Konponbide bezala UTC (Coordinated Universal Time) erabiltzen hasi naiz.
+            // http://stackoverflow.com/questions/7556591/javascript-date-object-always-one-day-off
+            if (amaierako_data) {
+
+                amaierako_data = new Date(amaierako_data);
+
+            } else {
+
+                // Atzoko data erabiliko dugu amaierako data lehenetsi bezala.
+                amaierako_data = new Date();
+                amaierako_data.setDate(amaierako_data.getUTCDate() - 1);
+
+            }
+
             var hasierako_urtea = hasierako_data.getUTCFullYear();
             var hasierako_hilabetea = wikidosia.itzuliHilabeteaKatea(hasierako_data);
             var hasierako_eguna = wikidosia.itzuliEgunaKatea(hasierako_data);
+
+            var amaierako_urtea = amaierako_data.getUTCFullYear();
+            var amaierako_hilabetea = wikidosia.itzuliHilabeteaKatea(amaierako_data);
+            var amaierako_eguna = wikidosia.itzuliEgunaKatea(amaierako_data);
 
             // URLan artikulu batzuk eskatu baditu erabiltzaileak...
             if (req.query.artikuluak) {
@@ -204,7 +223,11 @@ var SampleApp = function() {
 
             });
 
-            wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu", artikuluen_id_ak, hasierako_urtea, hasierako_hilabetea, hasierako_eguna, "2016", "01", "05", "all-access", "all-agents").then(function(erantzuna) {
+            wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu",
+                                                            artikuluen_id_ak,
+                                                            hasierako_urtea, hasierako_hilabetea, hasierako_eguna,
+                                                            amaierako_urtea, amaierako_hilabetea, amaierako_eguna,
+                                                            "all-access", "all-agents").then(function(erantzuna) {
 
                 // Joerak orria errendatu...
                 res.render("pages/joerak", {
@@ -213,6 +236,9 @@ var SampleApp = function() {
                     hasierako_urtea: hasierako_urtea,
                     hasierako_hilabetea: hasierako_hilabetea,
                     hasierako_eguna: hasierako_eguna,
+                    amaierako_urtea: amaierako_urtea,
+                    amaierako_hilabetea: amaierako_hilabetea,
+                    amaierako_eguna: amaierako_eguna,
                     datuak: erantzuna,
                     artikuluak: artikuluak,
                     artikuluen_id_ak: artikuluen_id_ak

@@ -74,15 +74,15 @@
 #data-div {
     margin-bottom: 22px;
 }
-#data-etiketa, #hasierako-data-etiketa {
+#data-etiketa, #hasierako-data-etiketa, #amaierako-data-etiketa {
     text-align: right;
     margin-right: 10px;
     vertical-align: 12px;
 }
-#data-edukiontzia, #hasierako-data-edukinontzia {
+#data-edukiontzia, #hasierako-data-edukinontzia, #amaierako-data-edukinontzia {
     display: inline-block;
 }
-#data, #hasierako-data {
+#data, #hasierako-data, #amaierako-data {
     width: 140px;
 }
 .aukerak #sarbidea.form-control {
