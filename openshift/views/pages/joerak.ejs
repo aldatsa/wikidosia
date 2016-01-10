@@ -154,12 +154,14 @@
                     bindto: '#grafikoa',
                     data: {
                         x: 'data',
+                        xLocaltime: false, // UTC erabil dezan, bestela dataordu lokala erabiltzen du eta arazoak ematen ditu.
                         xFormat: '%Y%m%d00',
                         columns: datuak
                     },
                     axis: {
                         x: {
                             type: "timeseries",
+                            localtime: false, // UTC erabil dezan, bestela dataordu lokala erabiltzen du eta arazoak ematen ditu.
                             tick: {
                                 rotate: 90,
                                 format: function (x) {
