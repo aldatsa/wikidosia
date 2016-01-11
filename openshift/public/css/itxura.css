@@ -121,3 +121,13 @@
 #gpl-logoa {
     width: 150px;
 }
+/* Diseinu moldakorrarekin arazoak ematen zizkidan.
+ * Ikusi: https://github.com/select2/select2/issues/3278
+ * Hau jarri behar izan diot:
+ */
+@media screen and (max-width: 820px) {
+    .select2 {
+        width: 90% !important;
+        margin-left: 30px !important;
+    }
+}
