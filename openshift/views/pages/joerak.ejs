@@ -88,7 +88,15 @@
                     var hasierako_data = $("#hasierako-data input").val();
                     var amaierako_data = $("#amaierako-data input").val();
 
-                    var artikuluak = $(".izenburuak").val().join(",");
+                    var artikuluak = "";
+
+                    // Erabiltzaileak gutxienez artikulu bat hautatu badu...
+                    if ($(".izenburuak").val()) {
+
+                        // Artikuluen komaz banatutako kate bat sortu.
+                        artikuluak = $(".izenburuak").val().join(",");
+
+                    }
 
                     if (hasierako_data > amaierako_data) {
 
