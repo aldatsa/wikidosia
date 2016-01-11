@@ -10,6 +10,15 @@
     display: inline-block;
     margin-left: 30px;
 }
+.goiburua .mantxeta .nav > li {
+    display: inline-block; /* Ez utzi menuari tolesten */
+}
+.goiburua .mantxeta .navbar-nav {
+    margin: 0; /* Ez utzi menuari tolesten */
+}
+.goiburua .mantxeta .navbar-nav > li {
+    float: left; /* Ez utzi menuari tolesten */
+}
 .goiburua .wikidosia {
     font-size: 36px;
     font-weight: bold;
@@ -120,6 +129,32 @@
 }
 #gpl-logoa {
     width: 150px;
+}
+@media screen and (max-width: 478px) {
+    .goiburua {
+        text-align: center;
+    }
+    /* Logoa txikiagoa eta erdian */
+    .goiburua .wikilogoa {
+        float: none;
+        margin-left: 25px;
+        height: 100px;
+        width: 100px;
+    }
+    .goiburua .mantxeta {
+        display: block;
+    }
+    .goiburua .mantxeta .navbar-nav {
+        margin-top: 15px; /* Bestela goikotik oso gertu gelditzen da. */
+    }
+    .goiburua .mantxeta .navbar-nav > li {
+        float: none; /* Erdian lerrokatzeko, bestela ezkerrean daude. */
+    }
+}
+@media screen and (max-width: 705px) {
+    .wikidosia-esteka {
+        display: block; /* Tamaina honetatik behera twitter-eko esteka bere errenkada propioan. */
+    }
 }
 /* Diseinu moldakorrarekin arazoak ematen zizkidan.
  * Ikusi: https://github.com/select2/select2/issues/3278
