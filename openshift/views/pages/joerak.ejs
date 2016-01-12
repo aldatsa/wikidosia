@@ -8,7 +8,16 @@
         <section class='container'>
             <%- include ../partials/goiburua.ejs %>
             <div class="row azalpena">
-                <form method="get" class="form-horizontal">
+                <h1 class="izenburua">Artikuluen joerak</h1>
+
+                <div>Beheko testu koadroan konparatu nahi dituzun artikuluen izenak idatzi eta artikulu horien ikustaldiek denboran zehar izan duten eboluzioa agertuko da grafikoan. Ez dakizu zein artikulu aukeratu? Hona hemen adibide batzuek:</div>
+                <ul>
+                    <li><a href="joerak?artikuluak=Beñat_Gaztelumendi,Alaia_Martin">Beñat Gaztelumendik irabazi zuen 2015eko Gipuzkoako Bertsolari Txapelketa baina Wikipedian nor izan zen nagusi Beñat ala Alaia Martin?</a></li>
+                    <li><a href="joerak?artikuluak=Azpiko_arropa">Ezetz asmatu ze opari jaso zuten askok 2016ko errege egunean?</a></li>
+                </ul>
+                <div>Zerbait kuriosoa aurkitzen baduzu partekatu sare sozialetan!</div>
+
+                <form class="joerak" method="get" class="form-horizontal">
                     <div class="form-group">
                         <div id="hasierako-data-div" class="col-xs-12 col-md-4 text-center form-group">
                             <label id="hasierako-data-etiketa" class="control-label">Hasierako data</label>
