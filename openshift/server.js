@@ -205,14 +205,6 @@ var SampleApp = function() {
 
             }
 
-            // Erabiltzaileak ez badu artikulurik eskatu...
-            if (artikuluen_id_ak.length === 0) {
-
-                // Artikulu lehenetsiak erabili.
-                artikuluen_id_ak = ["Beñat_Gaztelumendi", "Alaia_Martin", "Unai_Agirre", "Jon_Maia"];
-
-            }
-
             // Artikuluen id eta izenburuak gorde array batean.
             artikuluen_id_ak.forEach(function(artikuluaren_id) {
 
