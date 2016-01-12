@@ -223,6 +223,9 @@ var SampleApp = function() {
 
                 // Joerak orria errendatu...
                 res.render("pages/joerak", {
+                    protokoloa: req.protocol + '://',
+                    ostalaria: req.get('host'),
+                    url: req.originalUrl,
                     bista: "joerak",
                     title: "Wikidosia",
                     hasierako_urtea: hasierako_urtea,
