@@ -130,6 +130,13 @@
 #gpl-logoa {
     width: 150px;
 }
+.sare-sozialak {
+    margin: 15px 0px 15px 0px;
+}
+.sare-sozialak .facebook-botoia img {
+    width: 36px;
+    margin-left: 10px;
+}
 form.joerak {
     margin-top: 50px;
 }
