@@ -66,6 +66,12 @@
     margin-top: 50px;
     margin-bottom: 30px;
 }
+.azalpena .adibideak {
+    margin: 15px 0px 15px 0px;
+}
+.azalpena .adibideak li {
+    margin: 10px 0px 10px 0px;
+}
 .nik-❤️-wikipedia {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -138,7 +144,7 @@
     margin-left: 10px;
 }
 form.joerak {
-    margin-top: 50px;
+    margin: 30px 0px 30px 0px;
 }
 @media screen and (max-width: 478px) {
     .goiburua {
