@@ -220,7 +220,7 @@ var SampleApp = function() {
                                                             artikuluen_id_ak,
                                                             hasierako_urtea, hasierako_hilabetea, hasierako_eguna,
                                                             amaierako_urtea, amaierako_hilabetea, amaierako_eguna,
-                                                            "all-access", "all-agents").then(function(erantzuna) {
+                                                            "all-access", "user").then(function(erantzuna) {
 
                 // Joerak orria errendatu...
                 res.render("pages/joerak", {
