@@ -169,9 +169,10 @@ var SampleApp = function() {
 
             } else {
 
-                // 2015-01-01 erabiliko dugu hasierako data lehenetsi bezala.
+                // 2015-10-01 erabiliko dugu hasierako data lehenetsi bezala.
                 // Pageviews APIak data horretatik aurrerako datuak eskaintzen ditu.
-                hasierako_data = new Date(2015, 10, 1);
+                // Kontuan izan Date-k hilabeteak 0-11 bezala ulertzen dituela.
+                hasierako_data = new Date(Date.UTC(2015, 9, 1));
 
             }
 
