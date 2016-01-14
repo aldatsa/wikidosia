@@ -11,6 +11,8 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.6",
-    "bootstrap-datepicker": "~1.5.0"
+    "bootstrap-datepicker": "~1.5.0",
+    "select2": "~4.0.1",
+    "c3": "c3js-chart#~0.4.10"
   }
 }

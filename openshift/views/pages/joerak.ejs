@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="eu">
+    <%- include ../partials/head.ejs %>
+    <body>
+        <link href="/bower_components/select2/dist/css/select2.min.css" type="text/css" rel="stylesheet"></link>
+        <link href="/bower_components/c3/c3.min.css" rel="stylesheet" type="text/css">
+
+        <section class='container'>
+            <%- include ../partials/goiburua.ejs %>
+            <div class="azalpena">
+                <h1 class="izenburua">Artikuluen joerak</h1>
+
+                <div>Beheko testu koadroan konparatu nahi dituzun artikuluen izenak idatzi eta artikulu horien ikustaldiek denboran zehar izan duten eboluzioa agertuko da grafikoan. Ez dakizu zein artikulu aukeratu? Hona hemen adibide batzuek:</div>
+                <ul class="adibideak">
+                    <li><a href="joerak?artikuluak=Beñat_Gaztelumendi,Alaia_Martin">Beñat Gaztelumendik irabazi zuen 2015eko Gipuzkoako Bertsolari Txapelketa baina Wikipedian nor izan zen nagusi Beñat ala Alaia Martin?</a></li>
+                    <li><a href="joerak?artikuluak=Azpiko_arropa">Ezetz asmatu ze opari jaso zuten askok 2016ko errege egunean?</a></li>
+                </ul>
+                <div>Zerbait kuriosoa aurkitzen baduzu partekatu sare sozialetan!</div>
+                <div class="sare-sozialak">
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    <a href="https://twitter.com/intent/tweet?url=<%= encodeURI(url) %>&via=wikidosia">
+                        <img src="img/twitter.png">
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= encodeURI(url) %>" class="facebook-botoia" target="_blank">
+                        <img src="img/facebook.png">
+                    </a>
+                <div>
+                <form class="joerak" method="get" class="form-horizontal">
+                    <div class="form-group">
+                        <div id="hasierako-data-div" class="col-xs-12 col-md-6 text-center form-group">
+                            <label id="hasierako-data-etiketa" class="control-label">Hasierako data</label>
+                            <div id="hasierako-data-edukinontzia" class="date">
+                                <div class="input-group input-append date" id="hasierako-data">
+                                    <input type="text" class="form-control" value="<%= hasierako_urtea + "-" + hasierako_hilabetea + "-" + hasierako_eguna %>">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-th"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="amaierako-data-div" class="col-xs-12 col-md-4 text-center form-group">
+                            <label id="amaierako-data-etiketa" class="control-label">Amaierako data</label>
+                            <div id="amaierako-data-edukinontzia" class="date">
+                                <div class="input-group input-append date" id="amaierako-data">
+                                    <input type="text" class="form-control" value="<%= amaierako_urtea + "-" + amaierako_hilabetea + "-" + amaierako_eguna %>">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-th"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select class="izenburuak form-control" multiple="multiple"></select>
+                    </div>
+                </form>
+                <div id="grafikoa"></div>
+            </div>
+            <%- include ../partials/oina.ejs %>
+        </section>
+        <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.eu.min.js"></script>
+        <script type="text/javascript" src="/bower_components/select2/dist/js/select2.min.js"></script>
+        <script type="text/javascript" src="/bower_components/select2/dist/js/i18n/eu.js"></script>
+        <script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
+        <script type="text/javascript" src="/bower_components/c3/c3.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                var datuak = <%- JSON.stringify(datuak) %>;
+                var artikuluak = <%- JSON.stringify(artikuluak) %>;
+                var artikuluen_id_ak = <%- JSON.stringify(artikuluen_id_ak) %>;
+
+                $('#hasierako-data').datepicker({
+                    format: "yyyy-mm-dd",
+                    weekStart: 1,
+                    language: "eu",
+                    autoclose: true,
+                    startDate: "2015-10-01", // Momentuz ez dago data hori baino lehenagoko daturik.
+                    endDate: "-1d"           // Atzo. Ez utzi gaurko edo etorkizuneko datarik hautatzen.
+                })
+                .on("changeDate", function(e) {
+
+                    kargatuBerriz();
+
+                });
+
+                $('#amaierako-data').datepicker({
+                    format: "yyyy-mm-dd",
+                    weekStart: 1,
+                    language: "eu",
+                    autoclose: true,
+                    startDate: "2015-10-01", // Momentuz ez dago data hori baino lehenagoko daturik.
+                    endDate: "-1d"           // Atzo. Ez utzi gaurko edo etorkizuneko datarik hautatzen.
+                })
+                .on("changeDate", function(e) {
+
+                    kargatuBerriz();
+
+                });
+
+                function kargatuBerriz() {
+
+                    var hasierako_data = $("#hasierako-data input").val();
+                    var amaierako_data = $("#amaierako-data input").val();
+
+                    var artikuluak = "";
+
+                    // Erabiltzaileak gutxienez artikulu bat hautatu badu...
+                    if ($(".izenburuak").val()) {
+
+                        // Artikuluen komaz banatutako kate bat sortu.
+                        artikuluak = $(".izenburuak").val().join(",");
+
+                    }
+
+                    if (hasierako_data > amaierako_data) {
+
+                        alert("Hasierako datak amaierakoa baino lehenagokoa izan behar du.");
+
+                        return false;
+
+                    }
+
+                    window.location.href = "?artikuluak=" + artikuluak + "&hasierako_data=" + hasierako_data + "&amaierako_data=" + amaierako_data;
+
+                }
+
+                // Ez dut ezertarako erabiltzen baina hau gabe iradokizunenAtzeraDeia is not a function errorea ematen du select2-ren ajax deiak.
+                function iradokizunenAtzeraDeia() {}
+
+                $izenburuak = $(".izenburuak").select2({
+
+                    data: artikuluak,
+
+                    placeholder: "Idatzi artikuluen izenak",
+
+                    // AJAX bidez erabiltzaileak idatzi duenarekin bat datozen artikuluen izenak eskuratu
+                    ajax: {
+                        url: 'https://eu.wikipedia.org/w/api.php',
+                        dataType: 'jsonp',
+                        delay: 100,
+                        jsonpCallback: 'iradokizunenAtzeraDeia',
+                        data: function (search) {
+                            return {
+                                'action': 'query',
+                                'list': 'search',
+                                'format': 'json',
+                                'srsearch': search.term
+                            };
+                        },
+                        processResults: function (data) {
+                            // Mediawiki-ren APIak itzulitako emaitzak Select2-ren formatura bihurtu.
+                            var results = [];
+                            if (data.query && data.query.search) {
+                                results = data.query.search.map(function (elem) {
+                                    return {
+                                        id: elem.title.replace(/ /g, '_'),
+                                        text: elem.title
+                                    };
+                                });
+                            }
+                            return {results: results};
+                        },
+                        cache: true
+                    }
+                });
+
+                $izenburuak.val(artikuluen_id_ak).trigger("change");
+
+                $izenburuak.on("change", function (e) {
+
+                    kargatuBerriz();
+
+                });
+
+                $(".facebook-botoia").click(function(e) {
+
+                    e.preventDefault();
+
+                    window.open('http://www.facebook.com/sharer/sharer.php?u=<%= encodeURI(url) %>', 'facebook_share', 'height=320, width=640, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no');
+
+                });
+
+                var grafikoa = c3.generate({
+                    bindto: '#grafikoa',
+                    data: {
+                        x: 'data',
+                        xLocaltime: false, // UTC erabil dezan, bestela dataordu lokala erabiltzen du eta arazoak ematen ditu.
+                        xFormat: '%Y%m%d00',
+                        columns: datuak
+                    },
+                    axis: {
+                        x: {
+                            type: "timeseries",
+                            localtime: false, // UTC erabil dezan, bestela dataordu lokala erabiltzen du eta arazoak ematen ditu.
+                            tick: {
+                                rotate: 90,
+                                format: function (x) {
+
+                                    var urtea = x.getUTCFullYear();
+                                    var hilabetea = x.getUTCMonth() + 1;
+                                    var eguna = x.getUTCDate();
+
+                                    if (hilabetea < 10) {
+
+                                        hilabetea = "0" + hilabetea;
+
+                                    }
+
+                                    if (eguna < 10) {
+
+                                        eguna = "0" + eguna;
+
+                                    }
+
+                                    return urtea + "-" + hilabetea + "-" + eguna;
+                                }
+                            }
+                        },
+                        y: {
+                            label: {
+                                text: 'Ikustaldiak',
+                                position: 'outer-middle',
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

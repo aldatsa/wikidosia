@@ -2,9 +2,11 @@
 //  OpenShift sample Node application
 var express   = require('express');
 var fs        = require('fs');
+var Promise   = require('promise');
 var Wikidosia = require('../lib/wikidosia');
 var Wikipedia = require('../lib/wikipedia');
 var wikipedia = new Wikipedia();
+var wikidosia;
 
 /**
  *  Define the sample application.
@@ -107,16 +109,8 @@ var SampleApp = function() {
             }
 
             var urtea = data.getUTCFullYear();
-            var hilabetea = data.getUTCMonth() + 1; // Hilabeteak 0-11 bezala itzultzen ditu.
-            var eguna = data.getUTCDate();
-
-            if (hilabetea < 10) {
-                hilabetea = "0" + hilabetea;
-            }
-
-            if (eguna < 10) {
-                eguna = "0" + eguna;
-            }
+            var hilabetea = wikidosia.itzuliHilabeteaKatea(data);
+            var eguna = wikidosia.itzuliEgunaKatea(data);
 
             // sarbidea ez bada zehaztu edo mota ezezagun bat eskatu bada...
             if (sarbidea !== "all-access" && sarbidea !== "desktop" && sarbidea !== "mobile-app" && sarbidea !== "mobile-web") {
@@ -156,6 +150,96 @@ var SampleApp = function() {
                 });
 
             });
+        };
+
+        self.routes["/joerak"] = function(req, res) {
+
+            var artikuluak = [];
+            var artikuluen_id_ak = [];
+
+            var hasierako_data = req.query.hasierako_data;
+            var amaierako_data = req.query.amaierako_data;
+
+            // Erabiltzaileak hasierako data bat pasa badu URLean...
+            // Ordu-zonekin arazoak nituen. Konponbide bezala UTC (Coordinated Universal Time) erabiltzen hasi naiz.
+            // http://stackoverflow.com/questions/7556591/javascript-date-object-always-one-day-off
+            if (hasierako_data) {
+
+                hasierako_data = new Date(hasierako_data);
+
+            } else {
+
+                // 2015-10-01 erabiliko dugu hasierako data lehenetsi bezala.
+                // Pageviews APIak data horretatik aurrerako datuak eskaintzen ditu.
+                // Kontuan izan Date-k hilabeteak 0-11 bezala ulertzen dituela.
+                hasierako_data = new Date(Date.UTC(2015, 9, 1));
+
+            }
+
+            // Erabiltzaileak hasierako data bat pasa badu URLean...
+            // Ordu-zonekin arazoak nituen. Konponbide bezala UTC (Coordinated Universal Time) erabiltzen hasi naiz.
+            // http://stackoverflow.com/questions/7556591/javascript-date-object-always-one-day-off
+            if (amaierako_data) {
+
+                amaierako_data = new Date(amaierako_data);
+
+            } else {
+
+                // Atzoko data erabiliko dugu amaierako data lehenetsi bezala.
+                amaierako_data = new Date();
+                amaierako_data.setDate(amaierako_data.getUTCDate() - 1);
+
+            }
+
+            var hasierako_urtea = hasierako_data.getUTCFullYear();
+            var hasierako_hilabetea = wikidosia.itzuliHilabeteaKatea(hasierako_data);
+            var hasierako_eguna = wikidosia.itzuliEgunaKatea(hasierako_data);
+
+            var amaierako_urtea = amaierako_data.getUTCFullYear();
+            var amaierako_hilabetea = wikidosia.itzuliHilabeteaKatea(amaierako_data);
+            var amaierako_eguna = wikidosia.itzuliEgunaKatea(amaierako_data);
+
+            // URLan artikulu batzuk eskatu baditu erabiltzaileak...
+            if (req.query.artikuluak) {
+
+                artikuluen_id_ak = req.query.artikuluak.split(",");
+
+            }
+
+            // Artikuluen id eta izenburuak gorde array batean.
+            artikuluen_id_ak.forEach(function(artikuluaren_id) {
+
+                artikuluak.push({
+                    id: artikuluaren_id,
+                    text: artikuluaren_id.replace(/_/g, ' ')
+                });
+
+            });
+
+            wikidosia.eskuratuArtikuluenIkustaldienHistoria("eu",
+                                                            artikuluen_id_ak,
+                                                            hasierako_urtea, hasierako_hilabetea, hasierako_eguna,
+                                                            amaierako_urtea, amaierako_hilabetea, amaierako_eguna,
+                                                            "all-access", "all-agents").then(function(erantzuna) {
+
+                // Joerak orria errendatu...
+                res.render("pages/joerak", {
+                    url: req.protocol + '://' + req.get('host') + req.originalUrl,
+                    bista: "joerak",
+                    title: "Wikidosia",
+                    hasierako_urtea: hasierako_urtea,
+                    hasierako_hilabetea: hasierako_hilabetea,
+                    hasierako_eguna: hasierako_eguna,
+                    amaierako_urtea: amaierako_urtea,
+                    amaierako_hilabetea: amaierako_hilabetea,
+                    amaierako_eguna: amaierako_eguna,
+                    datuak: erantzuna,
+                    artikuluak: artikuluak,
+                    artikuluen_id_ak: artikuluen_id_ak
+                });
+
+            });
+
         };
 
         self.routes["/"] = function(req, res) {
@@ -207,7 +291,7 @@ var SampleApp = function() {
 
         var config = JSON.parse(fs.readFileSync(self.config_path + 'config.json'));
 
-        var wikidosia = new Wikidosia(config);
+        wikidosia = new Wikidosia(config);
 
         //  Start the app on the specific interface (and port).
         self.app.listen(self.port, self.ipaddress, function() {
