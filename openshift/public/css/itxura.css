@@ -153,12 +153,13 @@ form.joerak {
     /* Logoa txikiagoa eta erdian */
     .goiburua .wikilogoa {
         float: none;
-        margin-left: 25px;
+        margin-left: 10px;
         height: 100px;
         width: 100px;
     }
     .goiburua .mantxeta {
         display: block;
+        margin-left: 0px;
     }
     .goiburua .mantxeta .navbar-nav {
         margin-top: 15px; /* Bestela goikotik oso gertu gelditzen da. */
