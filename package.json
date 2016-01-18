@@ -14,7 +14,8 @@
     "request": "~2.60.0",
     "promise": "~7.0.4",
     "ejs": "~2.3.4",
-    "bower": "~1.6.8"
+    "bower": "~1.6.8",
+    "cheerio": "~0.19.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],
