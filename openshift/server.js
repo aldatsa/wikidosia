@@ -13,6 +13,8 @@ var wikidosia;
  */
 var SampleApp = function() {
 
+    "use strict";
+
     //  Scope.
     var self = this;
 
