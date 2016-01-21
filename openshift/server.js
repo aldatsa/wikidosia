@@ -1,11 +1,12 @@
 #!/bin/env node
-//  OpenShift sample Node application
-var express   = require('express');
-var fs        = require('fs');
-var Promise   = require('promise');
-var Wikidosia = require('../lib/wikidosia');
-var Wikipedia = require('../lib/wikipedia');
-var wikipedia = new Wikipedia();
+
+var express        = require('express');
+var sassMiddleware = require('node-sass-middleware');
+var fs             = require('fs');
+var Promise        = require('promise');
+var Wikidosia      = require('../lib/wikidosia');
+var Wikipedia      = require('../lib/wikipedia');
+var wikipedia      = new Wikipedia();
 var wikidosia;
 
 /**
@@ -263,6 +264,12 @@ var SampleApp = function() {
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
+        self.app.use(sassMiddleware({
+            src: __dirname + '/sass',
+            dest: __dirname + '/public/',
+            debug: true/*,
+            outputStyle: 'compressed'*/
+        }));
         self.app.use(express.static(__dirname + '/public'));
         self.app.set('views', __dirname + '/views');
         self.app.set('view engine', 'ejs');
