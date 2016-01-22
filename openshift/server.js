@@ -267,8 +267,8 @@ var SampleApp = function() {
         self.app.use(sassMiddleware({
             src: __dirname + '/sass',
             dest: __dirname + '/public/',
-            debug: true/*,
-            outputStyle: 'compressed'*/
+            debug: true,
+            outputStyle: 'compressed'
         }));
         self.app.use(express.static(__dirname + '/public'));
         self.app.set('views', __dirname + '/views');
