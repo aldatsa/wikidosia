@@ -123,9 +123,12 @@ $atzeko-planoaren-kolorea: #ffffff;
         font-size: 16px;
         font-style: italic;
     }
-}
-.ikustaldiak {
-    text-align: right;
+    .ikustaldiak {
+        text-align: right;
+    }
+    .joera {
+        width: 40px;
+    }
 }
 .logo {
     background-size: cover;

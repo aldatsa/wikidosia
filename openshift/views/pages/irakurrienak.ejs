@@ -44,13 +44,19 @@
                             <th>#</th>
                             <th>Izenburua</th>
                             <th class="ikustaldiak">Ikustaldiak</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <% for (var i = 0; i < artikuluak.length; i++) { %>
                         <tr>
                             <td><%= i + 1 %>
-                            <td><a href="https://eu.wikipedia.org/wiki/<%= artikuluak[i].article %>"><%= artikuluak[i].article.replace(/_/g, " ") %></a></td>
+                            <td>
+                                <a href="https://eu.wikipedia.org/wiki/<%= artikuluak[i].article %>"><%= artikuluak[i].article.replace(/_/g, " ") %></a>
+                            </td>
                             <td class="ikustaldiak"><%= artikuluak[i].views %></td>
+                            <td class="joera">
+                                <a href="joerak?artikuluak=<%= artikuluak[i].article %>">Joera</a>
+                            </td>
                         </tr>
                     <% } %>
                 </table>
