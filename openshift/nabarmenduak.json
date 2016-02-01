@@ -189,6 +189,13 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "Imanol Lartzabal",
+        "esteka": "https://eu.wikipedia.org/wiki/Imanol_Lartzabal",
+        "kategoria": "Biografiak",
+        "azpi-kategoria": "Euskal Herrikoak",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Karlos II.a Nafarroakoa",
         "esteka": "https://eu.wikipedia.org/wiki/Karlos_II.a_Nafarroakoa",
         "kategoria": "Biografiak",
@@ -1255,6 +1262,13 @@
     {
         "izena": "Gernikako bonbardaketa",
         "esteka": "https://eu.wikipedia.org/wiki/Gernikako_bonbardaketa",
+        "kategoria": "Historia",
+        "azpi-kategoria": "Euskal Herria",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Kristautasuna Euskal Herrian sartzea",
+        "esteka": "https://eu.wikipedia.org/wiki/Kristautasuna_Euskal_Herrian_sartzea",
         "kategoria": "Historia",
         "azpi-kategoria": "Euskal Herria",
         "azpi-azpi-kategoria": ""
