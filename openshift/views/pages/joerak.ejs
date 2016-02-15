@@ -55,6 +55,7 @@
                     </div>
                 </form>
                 <div id="grafikoa"></div>
+                <div id="grafikoa-oharrak"><strong>Oharra</strong>: Grafikoaren xehetasunak ikusteko zoom egin dezakezu saguaren gurpila erabiliz.</div>
             </div>
             <%- include ../partials/oina.ejs %>
         </section>
@@ -233,6 +234,9 @@
                         y: {
                             show: true
                         }
+                    },
+                    zoom: {
+                        enabled: true
                     }
                 });
             });
