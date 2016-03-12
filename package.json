@@ -26,7 +26,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "if [ -d \"$OPENSHIFT_REPO_DIR\" ]; then (export HOME=\"$OPENSHIFT_REPO_DIR\"/..; $(npm bin)/bower install) else ($(npm bin)/bower install) fi && npm run setup"
   },
-  "main": "openshift/server.js",
+  "main": "./openshift/server.js",
   "author": {
     "name": "Asier Iturralde Sarasola",
     "email": "asier.iturralde@gmail.com"
