@@ -252,6 +252,13 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "David Bowie",
+        "esteka": "https://eu.wikipedia.org/wiki/David_Bowie",
+        "kategoria": "Biografiak",
+        "azpi-kategoria": "Besteak",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Émile Durkheim",
         "esteka": "https://eu.wikipedia.org/wiki/%C3%89mile_Durkheim",
         "kategoria": "Biografiak",
@@ -581,6 +588,13 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "Enzebra",
+        "esteka": "https://eu.wikipedia.org/wiki/Enzebra",
+        "kategoria": "Zientziak",
+        "azpi-kategoria": "Fauna",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Pottoka",
         "esteka": "https://eu.wikipedia.org/wiki/Pottoka",
         "kategoria": "Zientziak",
@@ -716,13 +730,6 @@
     {
         "izena": "Bola joko",
         "esteka": "https://eu.wikipedia.org/wiki/Bola_joko",
-        "kategoria": "Kirolak",
-        "azpi-kategoria": "",
-        "azpi-azpi-kategoria": ""
-    },
-    {
-        "izena": "Errugbi",
-        "esteka": "https://eu.wikipedia.org/wiki/Errugbi",
         "kategoria": "Kirolak",
         "azpi-kategoria": "",
         "azpi-azpi-kategoria": ""
