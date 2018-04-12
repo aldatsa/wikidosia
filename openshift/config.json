@@ -1,4 +1,7 @@
 {
+    "mastodon_app": {
+        "access_token": "KOPIATU HEMEN ZURE APLIKAZIOAREN TOKENA"
+    },
     "twitter_app": {
 
         "consumer_key": "KOPIATU HEMEN ZURE APLIKAZIOAREN GAKOA",
