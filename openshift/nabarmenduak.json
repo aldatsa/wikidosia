@@ -70,6 +70,13 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "Bizkaia Zubia",
+        "esteka": "https://eu.wikipedia.org/wiki/Bizkaia_Zubia",
+        "kategoria": "Artea",
+        "azpi-kategoria": "Arkitektura",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Hirigintza",
         "esteka": "https://eu.wikipedia.org/wiki/Hirigintza",
         "kategoria": "Artea",
@@ -301,6 +308,13 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "Marina Tsvetaieva",
+        "esteka": "https://eu.wikipedia.org/wiki/Marina_Tsvetaieva",
+        "kategoria": "Biografiak",
+        "azpi-kategoria": "Besteak",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Mel Gibson",
         "esteka": "https://eu.wikipedia.org/wiki/Mel_Gibson",
         "kategoria": "Biografiak",
@@ -399,6 +413,27 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "Eguzki-sistema",
+        "esteka": "https://eu.wikipedia.org/wiki/Eguzki-sistema",
+        "kategoria": "Zientziak",
+        "azpi-kategoria": "Astronomia",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Oorten hodeia",
+        "esteka": "https://eu.wikipedia.org/wiki/Oorten_hodeia",
+        "kategoria": "Zientziak",
+        "azpi-kategoria": "Astronomia",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Entzelado (satelitea)",
+        "esteka": "https://eu.wikipedia.org/wiki/Entzelado_(satelitea)",
+        "kategoria": "Zientziak",
+        "azpi-kategoria": "Astronomia",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Erradiazio elektromagnetiko",
         "esteka": "https://eu.wikipedia.org/wiki/Erradiazio_elektromagnetiko",
         "kategoria": "Zientziak",
@@ -436,6 +471,13 @@
     {
         "izena": "Konposatu organikoen nomenklatura",
         "esteka": "https://eu.wikipedia.org/wiki/Konposatu_organikoen_nomenklatura",
+        "kategoria": "Zientziak",
+        "azpi-kategoria": "Kimika",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Kimikaren historia",
+        "esteka": "https://eu.wikipedia.org/wiki/Kimikaren_historia",
         "kategoria": "Zientziak",
         "azpi-kategoria": "Kimika",
         "azpi-azpi-kategoria": ""
@@ -569,13 +611,6 @@
     {
         "izena": "Izar",
         "esteka": "https://eu.wikipedia.org/wiki/Izar",
-        "kategoria": "Zientziak",
-        "azpi-kategoria": "Natura zientziak",
-        "azpi-azpi-kategoria": ""
-    },
-    {
-        "izena": "Plaken tektonika",
-        "esteka": "https://eu.wikipedia.org/wiki/Plaken_tektonika",
         "kategoria": "Zientziak",
         "azpi-kategoria": "Natura zientziak",
         "azpi-azpi-kategoria": ""
@@ -728,8 +763,15 @@
         "azpi-azpi-kategoria": ""
     },
     {
-        "izena": "Bola joko",
-        "esteka": "https://eu.wikipedia.org/wiki/Bola_joko",
+        "izena": "Bola joko (herri kirola)",
+        "esteka": "https://eu.wikipedia.org/wiki/Bola_joko_(herri_kirola)",
+        "kategoria": "Kirolak",
+        "azpi-kategoria": "",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Donostiako arraunketa",
+        "esteka": "https://eu.wikipedia.org/wiki/Donostiako_arraunketa",
         "kategoria": "Kirolak",
         "azpi-kategoria": "",
         "azpi-azpi-kategoria": ""
@@ -1099,6 +1141,13 @@
         "azpi-azpi-kategoria": "Europakoak"
     },
     {
+        "izena": "Teheran",
+        "esteka": "https://eu.wikipedia.org/wiki/Teheran",
+        "kategoria": "Geografia",
+        "azpi-kategoria": "Hiriak eta udalerriak",
+        "azpi-azpi-kategoria": "Beste kontinentetakoak"
+    },
+    {
         "izena": "Añanako Gatz Harana",
         "esteka": "https://eu.wikipedia.org/wiki/A%C3%B1anako_Gatz_Harana",
         "kategoria": "Geografia",
@@ -1225,6 +1274,13 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "Donostiako historia",
+        "esteka": "https://eu.wikipedia.org/wiki/Donostiako_historia",
+        "kategoria": "Historia",
+        "azpi-kategoria": "Euskal Herria",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Durangoko bonbardaketa",
         "esteka": "https://eu.wikipedia.org/wiki/Durangoko_bonbardaketa",
         "kategoria": "Historia",
@@ -1241,6 +1297,13 @@
     {
         "izena": "Espainiako Gerra Zibila Euskal Herrian",
         "esteka": "https://eu.wikipedia.org/wiki/Espainiako_Gerra_Zibila_Euskal_Herrian",
+        "kategoria": "Historia",
+        "azpi-kategoria": "Euskal Herria",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Espainiako Gerra Zibila Donostian (1936)",
+        "esteka": "https://eu.wikipedia.org/wiki/Espainiako_Gerra_Zibila_Donostian_(1936)",
         "kategoria": "Historia",
         "azpi-kategoria": "Euskal Herria",
         "azpi-azpi-kategoria": ""
@@ -1283,13 +1346,6 @@
     {
         "izena": "Lemoizko zentral nuklearra",
         "esteka": "https://eu.wikipedia.org/wiki/Lemoizko_zentral_nuklearra",
-        "kategoria": "Historia",
-        "azpi-kategoria": "Euskal Herria",
-        "azpi-azpi-kategoria": ""
-    },
-    {
-        "izena": "Nafarroako Gerra Zibila",
-        "esteka": "https://eu.wikipedia.org/wiki/Nafarroako_Gerra_Zibila",
         "kategoria": "Historia",
         "azpi-kategoria": "Euskal Herria",
         "azpi-azpi-kategoria": ""
@@ -1339,6 +1395,13 @@
     {
         "izena": "Alemaniar nekazarien gerra",
         "esteka": "https://eu.wikipedia.org/wiki/Alemaniar_nekazarien_gerra",
+        "kategoria": "Historia",
+        "azpi-kategoria": "Mundua",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Aljerko gudua",
+        "esteka": "https://eu.wikipedia.org/wiki/Aljerko_gudua",
         "kategoria": "Historia",
         "azpi-kategoria": "Mundua",
         "azpi-azpi-kategoria": ""
@@ -1435,6 +1498,27 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "Kongo Belgikarra",
+        "esteka": "https://eu.wikipedia.org/wiki/Kongo_Belgikarra",
+        "kategoria": "Historia",
+        "azpi-kategoria": "Mundua",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Kongoko krisialdia",
+        "esteka": "https://eu.wikipedia.org/wiki/Kongoko_krisialdia",
+        "kategoria": "Historia",
+        "azpi-kategoria": "Mundua",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Marokoko historia",
+        "esteka": "https://eu.wikipedia.org/wiki/Marokoko_historia",
+        "kategoria": "Historia",
+        "azpi-kategoria": "Mundua",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Mauthausen-Gusen kontzentrazio-esparrua",
         "esteka": "https://eu.wikipedia.org/wiki/Mauthausen-Gusen_kontzentrazio-esparrua",
         "kategoria": "Historia",
@@ -1444,6 +1528,13 @@
     {
         "izena": "Nesle dorrearen gertaera",
         "esteka": "https://eu.wikipedia.org/wiki/Nesle_dorrearen_gertaera",
+        "kategoria": "Historia",
+        "azpi-kategoria": "Mundua",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Otsaileko Iraultza",
+        "esteka": "https://eu.wikipedia.org/wiki/Otsaileko_Iraultza",
         "kategoria": "Historia",
         "azpi-kategoria": "Mundua",
         "azpi-azpi-kategoria": ""
@@ -1526,6 +1617,13 @@
         "azpi-azpi-kategoria": ""
     },
     {
+        "izena": "Euskararen jatorria",
+        "esteka": "https://eu.wikipedia.org/wiki/Euskararen_jatorria",
+        "kategoria": "Hizkuntzalaritza",
+        "azpi-kategoria": "",
+        "azpi-azpi-kategoria": ""
+    },
+    {
         "izena": "Latinezko literatura",
         "esteka": "https://eu.wikipedia.org/wiki/Latinezko_literatura",
         "kategoria": "Hizkuntzalaritza",
@@ -1535,6 +1633,20 @@
     {
         "izena": "Sherlock Holmes",
         "esteka": "https://eu.wikipedia.org/wiki/Sherlock_Holmes",
+        "kategoria": "Hizkuntzalaritza",
+        "azpi-kategoria": "Literatura",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Edurnezuri",
+        "esteka": "https://eu.wikipedia.org/wiki/Edurnezuri",
+        "kategoria": "Hizkuntzalaritza",
+        "azpi-kategoria": "Literatura",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Miguel de Cervantes",
+        "esteka": "https://eu.wikipedia.org/wiki/Miguel_de_Cervantes",
         "kategoria": "Hizkuntzalaritza",
         "azpi-kategoria": "Literatura",
         "azpi-azpi-kategoria": ""
@@ -1635,6 +1747,13 @@
         "esteka": "https://eu.wikipedia.org/wiki/Thor",
         "kategoria": "Erlijioa",
         "azpi-kategoria": "Mitologia",
+        "azpi-azpi-kategoria": ""
+    },
+    {
+        "izena": "Arduino",
+        "esteka": "https://eu.wikipedia.org/wiki/Arduino",
+        "kategoria": "Teknologia",
+        "azpi-kategoria": "",
         "azpi-azpi-kategoria": ""
     },
     {
