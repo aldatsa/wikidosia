@@ -1,6 +1,7 @@
 {
     "mastodon_app": {
-        "access_token": "KOPIATU HEMEN ZURE APLIKAZIOAREN TOKENA"
+        "access_token": "KOPIATU HEMEN ZURE APLIKAZIOAREN TOKENA",
+        "api_url": "KOPIATU HEMEN ZURE INSTANTZIAREN API URL-A. ADIBIDEZ, https://mastodon.eus/api/v1/"
     },
     "twitter_app": {
 
