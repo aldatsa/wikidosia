@@ -95,6 +95,17 @@ $atzeko-planoaren-kolorea: #ffffff;
 }
 .denbora-lerroa {
     text-align: center;
+
+    .mastodon-logoa {
+        float: left;
+        margin-bottom: 5px;
+        width: 230px;
+    }
+
+    iframe {
+        border: 1px solid #ccc;
+        border-right: none;
+    }
 }
 #data-div {
     margin-bottom: 22px;
